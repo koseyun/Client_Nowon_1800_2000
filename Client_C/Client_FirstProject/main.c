@@ -19,6 +19,10 @@
 int main(void)
 {
 	printf("Hello World !");
+
+	// printf
+	// 콘솔창에 문자열을 출력하는 함수
+	// 호출형태 : printf(서식문자열, 값);
 	printf("% d\n", 1);
 	return 0;
 	// 통상적으로 0을 반환하면 정상적으로 해당 함수가 끝났다는것을 상위 함수에 알려주기 위함.
