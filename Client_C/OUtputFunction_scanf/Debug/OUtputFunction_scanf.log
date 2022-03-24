@@ -1,2 +1,3 @@
 ﻿  main.c
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_C\OUtputFunction_scanf\main.c(8,7): warning C4101: 'tmpBuffer' :참조되지 않은 지역 변수입니다.
   OUtputFunction_scanf.vcxproj -> C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_C\Debug\OUtputFunction_scanf.exe
