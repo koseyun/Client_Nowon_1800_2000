@@ -1,7 +1,5 @@
 ﻿  Function.c
-C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_C\Function\Function.c(19,13): warning C4013: 'doSomething'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
-C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_C\Function\Function.c(25,5): warning C4013: 'sum'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
-C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_C\Function\Function.c(27,5): warning C4013: 'sub'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
-C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_C\Function\Function.c(68,5): error C2084: 'int main(void)' 함수에 이미 본문이 있습니다.
-C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_C\Function\Function.c(17): message : 'main'의 이전 정의를 참조하십시오.
-C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_C\Function\Function.c(70,2): error C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_C\Function\Function.c(26,5): warning C4013: 'sum'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_C\Function\Function.c(28,5): warning C4013: 'sub'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_C\Function\test.h(9): warning C4716: 'doSomething': 값을 반환해야 합니다.
+  Function.vcxproj -> C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_C\Debug\Function.exe

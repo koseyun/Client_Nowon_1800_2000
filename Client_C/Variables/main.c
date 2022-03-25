@@ -56,7 +56,7 @@ int main(void) {
 	int arr1x_1[3] = { 1, 2, 3 };
 	int arr1x_2[3] = { 1, 2 };
 	double arr1x_3[3] = { 4.4, 5.5, 6.2 };
-	double arr1x_4[] = {3.3, 5.5, 3.3}
+	double arr1x_4[] = { 3.3, 5.5, 3.3 };
 
 	printf("%d\n", arr1x_1[0]);
 	printf("%d\n", arr1x_1[1]);
