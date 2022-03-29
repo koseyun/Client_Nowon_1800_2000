@@ -1,10 +1,10 @@
 #pragma warning(disable : 4996)
 #include <stdio.h>
 
-void swap(int a, int b) {
-	int t = a;
-	a = b;
-	b = t;
+void swap(int* a, int* b) {
+	int t = *a; // 임시로 사용할 지역변수 t에다가 a가 가리키는 주소안에 들어있는 값을 대입
+	*a = *b;// a가 가리키는 주소안에 들어있는 값에 b가 가리키는 주소안에 들어있는 값을 대입
+	*b = t;
 }
 
 int main() {
@@ -61,11 +61,11 @@ int main() {
 	printf("%lf\n", d1 + *pd2);
 	printf("%lf\n", *pd1 + d2);
 
-	// 올바른 방법은 ? : *pd1 *&pd1
+	// 올바른 방법은 ? : *pd1 **&pd1
 	//printf("%lf\n", &pd1);
 	//printf("%lf\n", *pd1);
 	//printf("%lf\n", pd1);
-	//printf("%lf\n", *&pd1);
+	//printf("%lf\n", **&pd1);
 
 	// 올바른 방법은 ? : pd1, &*pd1
 	//scanf("%lf\n", &pd1);
@@ -123,7 +123,7 @@ int main() {
 	// 포인터를 사용하는 이유
 	// swap 예시
 	int _a = 1, _b = 2;
-	swap(_a, _b);
+	swap(&_a, &_b);
 	printf("a = %d, b = %d \n", _a, _b); // 예상결과 a = 2, b = 1;
 
 
