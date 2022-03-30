@@ -1,0 +1,8 @@
+﻿  FunctionPointer.c
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_C\FunctionPointer\FunctionPointer.c(25,13): warning C4013: 'strcmp'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_C\FunctionPointer\FunctionPointer.c(25,35): warning C4113: 'double (__cdecl *)(int,int)'은(는) 'double (__cdecl *)(double,double)'과(와) 매개 변수 목록이 다릅니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_C\FunctionPointer\FunctionPointer.c(26,40): warning C4113: 'double (__cdecl *)(int,int)'은(는) 'double (__cdecl *)(double,double)'과(와) 매개 변수 목록이 다릅니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_C\FunctionPointer\FunctionPointer.c(27,40): warning C4113: 'double (__cdecl *)(int,int)'은(는) 'double (__cdecl *)(double,double)'과(와) 매개 변수 목록이 다릅니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_C\FunctionPointer\FunctionPointer.c(28,40): warning C4113: 'double (__cdecl *)(int,int)'은(는) 'double (__cdecl *)(double,double)'과(와) 매개 변수 목록이 다릅니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_C\FunctionPointer\FunctionPointer.c(69,6): warning C4101: 'i' :참조되지 않은 지역 변수입니다.
+  FunctionPointer.vcxproj -> C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_C\Debug\FunctionPointer.exe

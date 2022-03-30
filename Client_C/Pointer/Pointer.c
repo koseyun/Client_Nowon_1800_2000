@@ -7,7 +7,7 @@ void swap(int* a, int* b) {
 	*b = t;
 }
 
-int main() {
+int main(void) {
 
 	// 주소 : 메모리 번지
 
@@ -126,6 +126,15 @@ int main() {
 	swap(&_a, &_b);
 	printf("a = %d, b = %d \n", _a, _b); // 예상결과 a = 2, b = 1;
 
+
+
+	// void 포인터
+	int a;
+	
+	void* vp = NULL;
+	vp = &a;
+
+	printf("%d\n", * (int*) vp);
 
 
 	return 0;
