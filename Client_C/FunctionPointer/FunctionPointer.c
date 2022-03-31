@@ -75,15 +75,22 @@ int GetFactorial(int n) {
 	return fact;
 }
 
-double sum(int a, int b) {
+double sum(double a, double b)
+{
 	return a + b;
 }
-double sub(int a, int b) {
+
+double sub(double a, double b)
+{
 	return a - b;
 }
-double div(int a, int b) {
-	return a / b;
-}
-double mul(int a, int b) {
+
+double mul(double a, double b)
+{
 	return a * b;
+}
+
+double div(double a, double b)
+{
+	return a / b;
 }
