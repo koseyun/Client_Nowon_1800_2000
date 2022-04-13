@@ -36,6 +36,11 @@ int main() {
 	cin >> name;
 	cout << "내이름은" << name << "이야" << endl;
 
+	
+	double feel = "happy", "good", "not bad";
+	cout << "How are you?" << endl;
+	cin >> feel;
+	cout << "I'm " << feel << "Thank you. And you?" << endl;
 
 	
 	return 0;
