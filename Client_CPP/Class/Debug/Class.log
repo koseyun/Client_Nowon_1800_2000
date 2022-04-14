@@ -1,0 +1,2 @@
+﻿  Class.cpp
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\Class\Class.cpp(47): error C4716: 'Coord::operator=': 값을 반환해야 합니다.
