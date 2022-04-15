@@ -1,4 +1,9 @@
+#pragma warning (disable : 4996)
+
 #include <iostream>
+#include "Warrior.h"
+#include "Debuffer.h"
+#include <cstring>
 using namespace std;
 
 // 접근제한자
@@ -49,6 +54,7 @@ public :
 		// this 포인터
 		// 현재 객체 자기자신을 가리키는 포인터
 		// 클래스 안에서 멤버에 접근할 때는 this 포인터가 생략되어있다.
+		return* this;
 	}
 
 	// 연산자 정의
@@ -59,7 +65,6 @@ public :
 		return tmpCoord;
 	}
 };
-
 
 int main() {
 	
@@ -81,7 +86,28 @@ int main() {
 
 	cout << "(" << coord1.GetCoordX() << "," << coord1.GetCoordY() << ")" << endl;
 
-	delete coord2ptr;
+	delete coord2ptr;     
+
+
+	//Warrior* warrior = new Warrior();
+	Debuffer* debuffer = new Debuffer();
+	//debuffer->DecreaseHP(*warrior);
+	debuffer->DecreaseHP();
+	//delete warrior;
+	delete debuffer;
+
+	Debuffer debuffer1;
+	debuffer1._damage = 10;
+	strcpy(debuffer1._name, "하급디버퍼");
+
+	Debuffer debuffer2 = debuffer1;
+	std::cout << debuffer2._damage << "," << debuffer2._name << std::endl;
+
+	strcpy(debuffer2._name, "상급디버퍼");
+	debuffer2._damage = 30;
+	std::cout << "1번 디버퍼" << debuffer1._damage << "," << debuffer1._name << std::endl;
+	std::cout << "2번 디버퍼" << debuffer2._damage << "," << debuffer2._name << std::endl;
+
 
 	return 0;
 }
