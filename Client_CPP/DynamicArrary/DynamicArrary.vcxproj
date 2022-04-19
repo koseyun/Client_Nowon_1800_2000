@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DynamicArrary.h" />
+    <ClInclude Include="DynaminArraryTemplate.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DynamicArrary.cpp" />

@@ -1,9 +1,10 @@
 #include <iostream>
-#include "DynamicArrary.h"
+//#include "DynamicArrary.h"
+#include "DynaminArraryTemplate.h"
 
 int main() {
 
-	DynamicArrary da;
+	/*DynamicArrary da;
 	da.Add(1);
 	da.Add(2);
 
@@ -11,7 +12,14 @@ int main() {
 
 	da.Remove(1);
 
-	da.Delete();
+	da.Delete();*/
+
+	DynamicArrary<int> int_DA;
+	DynamicArrary<double> double_DA;
+	DynamicArrary<float> float_DA;
+
+	int_DA.Add(0);
+	int_DA.Remove(0);
 
 	return 0;
 }
