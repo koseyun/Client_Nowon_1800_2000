@@ -34,37 +34,19 @@ class LinkedList
 	// (더블리) 링크드 리스트 템플릿 구현해보기
 	// C 때 했던거 참고
 	// 멤버함수는
-	// void AddFirst(T item)
-	// void AddLast(T item)
-	// void AddAfter(Node& node, T item)
-	// void AddBefore(Node& node, T item)
-	// Node<T>& First()
-	// Node<T>& Last()
-	// Node<T>& Find(T item)
-	// Node<T>& FindLast(T item)
-	// bool Remove(T item)
-	// bool RemoveLast(T item)
-	// void Delete()
+	
 	void AddFirst(T _item);
-
 	void AddLast(T _item);
-
-	void AddAfter(Node& node, T item);
-
-	void AddBefore(Node& node, T item);
-
-	Node<T>& First();
-
-	Node<T>& Last();
-
+	void AddBefore(Node<T>& target, T item);
+	void AddBefore(T targetitem, T item);
+	void AddAfter(Node<T>& target, T item);
+	void AddAfter(T targetitem, T item);
 	Node<T>& Find(T item);
-
 	Node<T>& FindLast(T item);
-
+	Node<T>& First();
+	Node<T>& Last();
 	bool Remove(T item);
-	
 	bool RemoveLast(T item);
-	
 	void Delete();
 
 };
@@ -112,8 +94,8 @@ inline void LinkedList<T>::AddLast(T _item)
 	// first 가 존재안함?
 	// : 이번 신규노드가 가장 처음으로 생성된 노드다
 	// 즉, first 와 last 포인터가 둘다 신규노드를 가리켜야 한다.
-	if (_last == nullptr)
-		//_last = _tmp; // 어차피 마지막에 first 가 신규노드를 가리키게 할거니까 생략가능
+	if (_last == nullptr) {
+		//_last = _tmp; // 어차피 마지막에 last 가 신규노드를 가리키게 할거니까 생략가능
 		_first = _tmp;
 	}
 
@@ -131,25 +113,199 @@ inline void LinkedList<T>::AddLast(T _item)
 }
 
 template<typename T>
-inline void LinkedList<T>::AddAfter(Node& node, T item)
+inline void LinkedList<T>::AddBefore(Node<T>& target, T item)
 {
-	_tmp = _first;
-	while (_tmp != NULL)
+	_tmp = _first; // 첫 노드부터 검색시작
+	while (_tmp = nullptr)
 	{
-		if (_tmp->_item == node) {
-			_tmp2 = new Node<T>();
+		// 노드 찾았으면
+		if (_tmp == target) {
+			_tmp2 = new Node<T>(); // 신규노드 생성
 
-			_tmp2->_next = _tmp->_next;
-			_tmp->_next = _tmp2;
-			_tmp2 = in_item;
+			// 타겟 노드의 이전 노드가 존재하면
+			if (_tmp->_prev != nullptr) {
+				_tmp->_prev->_next = _tmp2; // 타겟 노드의 이전 노드의 다음 노드 포인터가 신규 노드를 가리키도록 함.
+				_tmp2->_prev = _tmp->_prev; // 신규 노드의 이전 노드 포인터가 타겟노드의 이전 노드를 가리키도록 함.
+			}
+			_tmp->_prev = _tmp2; // 타겟 노드의 이전 노드 포인터가 신규 노드를 가리키도록 함
+			_tmp2->_next = _tmp; // 신규 노드의 다음 노드 포인터가 타겟 노드를 가리키도록 함
+			_tmp->_item = item; // 신규 노드의 데이터 초기화.
 			return;
 		}
 		_tmp = _tmp->_next;
 	}
-	return;
 }
 
 template<typename T>
-inline void LinkedList<T>::AddBefore(Node& node, T item)
+inline void LinkedList<T>::AddBefore(T targetitem, T item)
 {
+	_tmp = _first; // 첫 노드부터 검색시작
+	while (_tmp = nullptr)
+	{
+		// 노드 찾았으면
+		if (_tmp->_item == targetitem) {
+			_tmp2 = new Node<T>(); // 신규노드 생성
+
+			// 타겟 노드의 이전 노드가 존재하면
+			if (_tmp->_prev != nullptr) {
+				_tmp->_prev->_next = _tmp2; // 타겟 노드의 이전 노드의 다음 노드 포인터가 신규 노드를 가리키도록 함.
+				_tmp2->_prev = _tmp->_prev; // 신규 노드의 이전 노드 포인터가 타겟노드의 이전 노드를 가리키도록 함.
+			}
+			_tmp->_prev = _tmp2; // 타겟 노드의 이전 노드 포인터가 신규 노드를 가리키도록 함
+			_tmp2->_next = _tmp; // 신규 노드의 다음 노드 포인터가 타겟 노드를 가리키도록 함
+			_tmp->_item = item; // 신규 노드의 데이터 초기화.
+			return;
+		}
+		_tmp = _tmp->_next;
+	}
+}
+
+template<typename T>
+inline void LinkedList<T>::AddAfter(Node<T>& target, T item)
+{
+	_tmp = _first; // 첫 노드부터 검색시작
+	while (_tmp = nullptr)
+	{
+		// 노드 찾았으면
+		if (_tmp == target) {
+			_tmp2 = new Node<T>(); // 신규노드 생성
+
+			// 타겟 노드의 다음 노드가 존재하면
+			if (_tmp->_next != nullptr) {
+				_tmp->_next->_prev = _tmp2; // 타겟 노드의 다음 노드의 이전 노드 포인터가 신규 노드를 가리키도록 함.
+				_tmp2->_next = _tmp->_next; // 신규 노드의 다음 노드 포인터가 타겟노드의 다음 노드를 가리키도록 함.
+			}
+			_tmp->_next = _tmp2; // 타겟 노드의 다음 노드 포인터가 신규 노드를 가리키도록 함
+			_tmp2->_prev = _tmp; // 신규 노드의 이전 노드 포인터가 타겟 노드를 가리키도록 함
+			_tmp->_item = item; // 신규 노드의 데이터 초기화.
+			return;
+		}
+		_tmp = _tmp->_next;
+	}
+}
+
+template<typename T>
+inline void LinkedList<T>::AddAfter(T targetitem, T item)
+{
+	_tmp = _first; // 첫 노드부터 검색시작
+	while (_tmp = nullptr)
+	{
+		// 노드 찾았으면
+		if (_tmp->_item == targetitem) {
+			_tmp2 = new Node<T>(); // 신규노드 생성
+
+			// 타겟 노드의 다음 노드가 존재하면
+			if (_tmp->_next != nullptr) {
+				_tmp->_next->_prev = _tmp2; // 타겟 노드의 다음 노드의 이전 노드 포인터가 신규 노드를 가리키도록 함.
+				_tmp2->_next = _tmp->_next; // 신규 노드의 다음 노드 포인터가 타겟노드의 다음 노드를 가리키도록 함.
+			}
+			_tmp->_next = _tmp2; // 타겟 노드의 다음 노드 포인터가 신규 노드를 가리키도록 함
+			_tmp2->_prev = _tmp; // 신규 노드의 이전 노드 포인터가 타겟 노드를 가리키도록 함
+			_tmp->_item = item; // 신규 노드의 데이터 초기화.
+			return;
+		}
+		_tmp = _tmp->_next;
+	}
+}
+
+
+
+template<typename T>
+inline Node<T>& LinkedList<T>::Find(T item)
+{
+	_tmp = _first; // 가장 첫 노드부터 검색
+	while (_tmp != nullptr)
+	{
+		if (_tmp->_item == item)
+			return _tmp;
+
+		_tmp = _tmp->next; // 그 다음 노드 검색
+	}
+	return nullptr;
+}
+
+template<typename T>
+inline Node<T>& LinkedList<T>::FindLast(T item)
+{
+	_tmp = _last; // 가장 뒤 노드부터 검색
+	while (_tmp != nullptr)
+	{
+		if (_tmp->_item == item)
+			return _tmp;
+
+		_tmp = _tmp->_prev; // 그 전 노드 검색
+	}
+	return nullptr;
+}
+
+template<typename T>
+inline Node<T>& LinkedList<T>::First()
+{
+	return _first;
+}
+
+template<typename T>
+inline Node<T>& LinkedList<T>::Last()
+{
+	return _last;
+}
+
+template<typename T>
+inline bool LinkedList<T>::Remove(T item)
+{
+	bool isRemoved = false;
+	
+	// 노드 검색
+	_tmp = Find(item);
+
+	// 노드 찾았으면
+	if (_tmp != nullptr) {
+		// 이전 노드가 있으면
+		if (_tmp->_prev != nullptr)
+			_tmp->_prev->_next = _tmp->_next; // 삭제할 노드의 이전 노드의 다음 포인터가 삭제할 노드의 다음 노드를 가리키도록 함.
+		// 다음 노드가 있으면
+		if (_tmp->_next != nullptr)
+			_tmp->_next->_prev = _tmp->_prev; // 삭제할 노드의 다음 노드의 이전 포인터가 삭제할 노드의 이전 노드를 가리키도록 함.
+
+		delete _tmp; // 삭제할 노드 메모리 해제
+		isRemoved = true;
+	}
+	_tmp = nullptr;
+	return isRemoved;
+}
+
+template<typename T>
+inline bool LinkedList<T>::RemoveLast(T item)
+{
+	bool isRemoved = false;
+
+	// 노드 검색
+	_tmp = FindLast(item);
+
+	// 노드 찾았으면
+	if (_tmp != nullptr) {
+		// 이전 노드가 있으면
+		if (_tmp->_prev != nullptr)
+			_tmp->_prev->_next = _tmp->_next; // 삭제할 노드의 이전 노드의 다음 포인터가 삭제할 노드의 다음 노드를 가리키도록 함.
+		// 다음 노드가 있으면
+		if (_tmp->_next != nullptr)
+			_tmp->_next->_prev = _tmp->_prev; // 삭제할 노드의 다음 노드의 이전 포인터가 삭제할 노드의 이전 노드를 가리키도록 함.
+
+		delete _tmp; // 삭제할 노드 메모리 해제
+		isRemoved = true;
+	}
+	_tmp = nullptr;
+	return isRemoved;
+}
+
+template<typename T>
+inline void LinkedList<T>::Delete()
+{
+	_tmp = _first;
+	while (_tmp != nul)
+	{
+		_tmp2 = _tmp->_next; // 현재 노드 다음거 임시저장
+		delete _tmp; // 현재 노드 메모리 해제
+		_tmp = _tmp2; // 임시저장 한거 다음 검색
+	}
 }
