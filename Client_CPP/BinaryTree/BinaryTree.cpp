@@ -145,7 +145,10 @@ bool BinaryTree::Remove(int item)
         else {
 
             // 단말노드 검색 ( 삭제한 노드를 대체할 노드 검색 )
-            Node* leaf = FindLeaf(_tmp);
+            Node* leaf = FindVeryLeftLeaf(_tmp->_right, _tmp2);
+            _tmp->_data = leaf->_data; // 삭제해야하는 노드의 값을 단말모드 값으로 대입
+            _tmp2->_left = nullptr; // 단말노드와 단말노드 부모 간의 연결 끊음
+            delete leaf; // 단말노드 삭제
 
         }
     }
@@ -153,17 +156,24 @@ bool BinaryTree::Remove(int item)
     return doRemoved;
 }
 
-Node* BinaryTree::FindLeaf(Node* start)
+Node* BinaryTree::FindVeryLeftLeaf(Node* start, Node* parent)
 {
     Node* leaf = start;
+
+    while (leaf->_left != nullptr)
+    {
+        parent = leaf;
+        leaf = leaf->_left;
+    }
     
-    if (leaf->_right != nullptr) {
+    /*if (leaf->_right != nullptr) {
         leaf = leaf->_right;
         while (leaf->_left != nullptr)
         {
             leaf = leaf->_left;
         }
         leaf = FindLeaf(leaf);
-    }
+    }*/
+
     return leaf;
 }
