@@ -19,8 +19,8 @@ public:
 	bool RemoveKey(int key); // 인자 key 에 해당하는 bucket 을 메모리 해제 하는 함수 
 	bool RemoveKey(string value); // 인자 value 에 해당하는 key 에 해당하는 bucket 을 메모리 해제하는 함수
 	bool RemoveValue(string value); // 인자 value 를 메모리 해제하는 함수
-	bool Clear(); // 모든 bucket 메모리 해제
-	bool Delete(); // hashtable 메모리 해제
+	void Clear(); // 모든 bucket 메모리 해제
+	void Delete(); // hashtable 메모리 해제
 
 private:
 	int Hash(string value); // 해시를 구하는 함수
