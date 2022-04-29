@@ -5,9 +5,3 @@ void Creature::Breath()
 	age++;
 	Grow();
 }
-
-void Creature::Grow()
-{
-	mass++;
-	height++;
-}
