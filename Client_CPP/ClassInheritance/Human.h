@@ -4,6 +4,7 @@
 #include "DynaminArraryTemplate.h"
 #include "ITwoLeggedWalker.h"
 #include "IFourLeggedWalker.h"
+#include "Dog.h"
 
 using namespace std;
 
@@ -18,5 +19,6 @@ public:
     void PrintAllClothes();
     void TwoLeggedWalk();
     void FourLeggedWalk();
+    void MakeDogFollowMe(Dog& dog);
 };
 
