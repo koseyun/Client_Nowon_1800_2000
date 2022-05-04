@@ -8,11 +8,25 @@ int main() {
 	vector<int> tmpVec;
 	tmpVec.push_back(10);
 	tmpVec.push_back(20);
+	tmpVec.push_back(30);
+	tmpVec.push_back(40);
+	// befin
 	vector<int>::iterator iter = tmpVec.begin();
 	int tmpValue = *iter;
-	
 	cout << tmpValue << endl;
-	tmpVec.erase(iter);
+	// end
+	//iter = tmpVec.end(); // 제일 마지막 요소의 다음번 포인터
+	//tmpValue = *iter;
+	++iter;
+	tmpValue = *iter;
+	cout << tmpValue << endl;
+
+	for (iter = tmpVec.begin(); iter < tmpVec.end(); iter++)
+	{
+		cout << *iter << endl;
+	}
+
+	//tmpVec.erase(iter);
 
 	DynamicArray<int> tmpDA;
 	tmpDA.Add(10);
@@ -27,8 +41,16 @@ int main() {
 	cout << tmpValue << endl;*/
 
 	DynamicArray<int>::Iterator iter_Begin = tmpDA.Begin();
-	cout << *iter_Begin << endl;
+	for (; iter_Begin < tmpDA.End(); ++iter_Begin)
+	{
 
+	}
+
+	//iter_Begin++;
+	//cout << *(iter_Begin++) << endl;
+	//cout << *iter_Begin << endl;
+	//++iter_Begin;
+	//++iter_Begin;
 
 	return 0;
 }

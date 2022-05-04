@@ -1,2 +1,10 @@
 ﻿  STLPractice.cpp
-  STLPractice.vcxproj -> C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\Debug\STLPractice.exe
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\STLPractice\STLPractice.cpp(43,43): error C2248: 'DynamicArray<int>::Iterator': private class('DynamicArray<int>' 클래스에서 선언)에 액세스할 수 없습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\STLPractice\DynaminArraryTemplate.h(38): message : 'DynamicArray<int>::Iterator' 선언을 참조하십시오.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\STLPractice\STLPractice.cpp(31): message : 'DynamicArray<int>' 선언을 참조하십시오.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\STLPractice\STLPractice.cpp(43,55): error C2248: 'DynamicArray<int>::Begin': private 멤버('DynamicArray<int>' 클래스에서 선언)에 액세스할 수 없습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\STLPractice\DynaminArraryTemplate.h(108): message : 'DynamicArray<int>::Begin' 선언을 참조하십시오.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\STLPractice\STLPractice.cpp(31): message : 'DynamicArray<int>' 선언을 참조하십시오.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\STLPractice\STLPractice.cpp(44,32): error C2248: 'DynamicArray<int>::End': private 멤버('DynamicArray<int>' 클래스에서 선언)에 액세스할 수 없습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\STLPractice\DynaminArraryTemplate.h(109): message : 'DynamicArray<int>::End' 선언을 참조하십시오.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\STLPractice\STLPractice.cpp(31): message : 'DynamicArray<int>' 선언을 참조하십시오.

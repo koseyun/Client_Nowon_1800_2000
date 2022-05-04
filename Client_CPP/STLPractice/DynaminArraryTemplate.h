@@ -1,4 +1,6 @@
 #pragma once
+#include <cassert>
+
 template <typename T>
 class DynamicArray
 {
@@ -35,21 +37,87 @@ public:
 	class Iterator
 	{
 	public:
+		DynamicArray* p_DA;
 		T* p_Data;
 		int _idx;
-
+	public:
 		T& operator * () {
 			return p_Data[_idx];
 		}
 
-		Iterator(T* data, int index)
-			: p_Data(data)
-			, _idx(index)
+		Iterator& operator ++() {
+
+			// Dynamic Array 의 데이터 주소와 Iterator 가 가지고 있는 데이터 주소가 동일한지
+			if ((p_DA == nullptr) ||
+				(p_DA->_data != p_Data) ||
+				(_idx < 0))
+			{
+				assert(nullptr);
+			}
+
+			// Iterator 의 데이터가 마지막 요소 이상일 경우 end 취급
+			if (_idx < p_DA->_length - 1) {
+				++_idx;
+			}
+			else {
+				_idx = -1;
+			}
+			return *this;
+		}
+
+		Iterator operator++(int) {
+			Iterator tmpIter = *this;
+			++(*this);
+			return tmpIter;
+		}
+
+		bool operator < (const Iterator& other) {
+			// this 가 end 일때
+			if (_idx < 0)
+				return false;
+
+			// other 가 end 일때
+			if (other._idx < 0)
+				return true;
+
+
+			// 둘다 end 가 아닐때
+			if (_idx < other._idx &&
+				p_DA->_data == other.p_DA->_data)
+				return true;
+			return false;
+		}
+
+		bool operator == (const Iterator& other) {
+			if (p_DA->_data == other.p_DA->_data &&
+				_idx == other._Idx)
+				return true;
+			return false;
+		}
+
+		bool operator != (const Iterator& other) {
+			return !(* this == other)
+		}
+
+		Iterator()
+			: p_DA(nullptr)
+			, p_Data(nullptr)
+			, _idx(-1)
 		{
 		}
-	};
 
+		Iterator(DynamicArray* da, T* data, int index)
+			: p_DA(da)
+			, p_Data(data)
+			, _idx(index)
+		{
+			if (data == nullptr)
+				index = -1;
+		}
+	};
+public:
 	DynamicArray<T>::Iterator Begin();
+	DynamicArray<T>::Iterator End();
 
 };
 
@@ -155,5 +223,11 @@ DynamicArray<T>::~DynamicArray()
 template<typename T>
 typename DynamicArray<T>::Iterator DynamicArray<T>::Begin()
 {
-	return DynamicArray<T>::Iterator(_data, 0);
+	return DynamicArray<T>::Iterator(this, _data, 0);
+}
+
+template<typename T>
+typename DynamicArray<T>::Iterator DynamicArray<T>::End()
+{
+	return DynamicArray<T>::Iterator(this, _data, -1);
 }
