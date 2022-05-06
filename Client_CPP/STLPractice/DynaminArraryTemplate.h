@@ -4,6 +4,7 @@
 template <typename T>
 class DynamicArray
 {
+
 private:
 	T* _data;
 	int _length;
@@ -20,6 +21,8 @@ public:
 	bool RemoveAt(int index);
 	void Delete();
 	T* GetData();
+	
+
 
 	DynamicArray();
 	~DynamicArray();
@@ -36,11 +39,15 @@ public:
 	// inner class
 	class Iterator
 	{
-	public:
+
+	private:
+		friend class DynamicArray<T>;
 		DynamicArray* p_DA;
 		T* p_Data;
 		int _idx;
+
 	public:
+
 		T& operator * () {
 			return p_Data[_idx];
 		}
@@ -96,7 +103,7 @@ public:
 		}
 
 		bool operator != (const Iterator& other) {
-			return !(* this == other)
+			return !(*this == other);
 		}
 
 		Iterator()
@@ -118,6 +125,7 @@ public:
 public:
 	DynamicArray<T>::Iterator Begin();
 	DynamicArray<T>::Iterator End();
+	DynamicArray<T>::Iterator Erase(const Iterator& _iter);
 
 };
 
@@ -230,4 +238,25 @@ template<typename T>
 typename DynamicArray<T>::Iterator DynamicArray<T>::End()
 {
 	return DynamicArray<T>::Iterator(this, _data, -1);
+}
+
+template<typename T>
+typename DynamicArray<T>::Iterator DynamicArray<T>::Erase(const Iterator& _iter)
+{
+	// 현재 DynamicArray 데이터 주소와 iterator 가 가지고 있는 DynamicArray 주소가 다를때
+	// 현재 데이터와 iterator 가 가지고 있는 데이터가 다를때
+	// inedx 가 유효하지 않을때
+	// 
+	if (this != _iter.p_DA ||
+		_data != _iter.p_Data ||
+		_length <= _iter._idx) {
+		assert(nullptr);
+	}
+
+	if (RemoveAt(_iter._idx) == false) {
+		assert(nullptr);
+	}
+
+
+	return DynamicArray<T>::Iterator(this, _data, _iter._idx);
 }
