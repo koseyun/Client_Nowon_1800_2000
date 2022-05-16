@@ -46,7 +46,7 @@ int main(void) {
 	return 0;
 }*/
 
-// 매개변수 도 지역변수 ( 매개변수 ⊂ 지역변수 )
+// 매개변수도 지역변수 ( 매개변수 ⊂ 지역변수 )
 int sum(int a, int b) {
 
 	int tmpValue = a + b;
