@@ -1,2 +1,3 @@
 ﻿  Functions.cpp
-  Functions.vcxproj -> C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\Debug\Functions.exe
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\Functions\Functions.cpp(55,12): error C2084: 'int Sub(int,int)' 함수에 이미 본문이 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\Functions\Functions.cpp(21): message : 'Sub'의 이전 정의를 참조하십시오.

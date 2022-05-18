@@ -1,2 +1,21 @@
-﻿  Main.cpp
-  DynamicArrary.vcxproj -> C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\Debug\DynamicArrary.exe
+﻿  DynamicArrary.cpp
+  Main.cpp
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\DynamicArrary\DynaminArraryTemplate.h(108,1): error C2440: '=': 'int *'에서 'T *'(으)로 변환할 수 없습니다.
+          with
+          [
+              T=double
+          ]
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\DynamicArrary\DynaminArraryTemplate.h(108,10): message : 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 괄호가 있는 함수 스타일 캐스트가 필요합니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\DynamicArrary\DynaminArraryTemplate.h(104): message : 클래스 템플릿 멤버 함수 'DynamicArrary<double>::DynamicArrary(void)'을(를) 컴파일하는 중입니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\DynamicArrary\Main.cpp(18): message : 컴파일되는 함수 템플릿 인스턴스화 'DynamicArrary<double>::DynamicArrary(void)'에 대한 참조를 확인하세요.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\DynamicArrary\Main.cpp(18): message : 컴파일되는 클래스 템플릿 인스턴스화 'DynamicArrary<double>'에 대한 참조를 확인하세요.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\DynamicArrary\DynaminArraryTemplate.h(108,1): error C2440: '=': 'int *'에서 'T *'(으)로 변환할 수 없습니다.
+          with
+          [
+              T=float
+          ]
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\DynamicArrary\DynaminArraryTemplate.h(108,10): message : 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 괄호가 있는 함수 스타일 캐스트가 필요합니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\DynamicArrary\DynaminArraryTemplate.h(104): message : 클래스 템플릿 멤버 함수 'DynamicArrary<float>::DynamicArrary(void)'을(를) 컴파일하는 중입니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\DynamicArrary\Main.cpp(19): message : 컴파일되는 함수 템플릿 인스턴스화 'DynamicArrary<float>::DynamicArrary(void)'에 대한 참조를 확인하세요.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\DynamicArrary\Main.cpp(19): message : 컴파일되는 클래스 템플릿 인스턴스화 'DynamicArrary<float>'에 대한 참조를 확인하세요.
+  코드를 생성하고 있습니다...

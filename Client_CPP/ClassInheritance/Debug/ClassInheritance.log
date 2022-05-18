@@ -6,5 +6,4 @@
   Human_Yellow.cpp
   Main.cpp
   코드를 생성하고 있습니다...
-Main.obj : error LNK2001: 확인할 수 없는 외부 기호 "public: virtual void __thiscall Human::FourLeggedWalk(void)" (?FourLeggedWalk@Human@@UAEXXZ)
-C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\Debug\ClassInheritance.exe : fatal error LNK1120: 1개의 확인할 수 없는 외부 참조입니다.
+  ClassInheritance.vcxproj -> C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\Debug\ClassInheritance.exe
