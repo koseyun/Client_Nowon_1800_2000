@@ -1,0 +1,7 @@
+﻿  CommandCenter.cpp
+  Example_CallBack.cpp
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\Example_CallBack\Example_CallBack.cpp(15,31): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\Example_CallBack\Example_CallBack.cpp(28,9): warning C4244: '인수': 'float'에서 'DWORD'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  SCV.cpp
+  코드를 생성하고 있습니다...
+  Example_CallBack.vcxproj -> C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\Debug\Example_CallBack.exe

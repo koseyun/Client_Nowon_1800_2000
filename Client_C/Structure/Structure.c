@@ -44,7 +44,7 @@ struct StudentList {
 	int num;
 } studentList;
 
-void SwapStudents(Student* student1, Student student2);
+void SwapStudents(Student* student1, Student* student2);
 
 int main() {
 
@@ -129,8 +129,6 @@ int main() {
 	printf("student A' english grade %d\n", studentList.students[0].english);
 
 	// 구조체를 스왑하는 함수
-
-
 }
 
 void SwapStudents(Student* student1, Student* student2)
