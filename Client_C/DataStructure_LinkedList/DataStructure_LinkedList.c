@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void AddLast(int, int), ShowAll();
+void Add(int, int), ShowAll();
 
 
 typedef struct _Node {
@@ -12,7 +12,7 @@ typedef struct _Node {
 
 Node* head,* tail,* tmp, * tmp2;
 
-void AddLast(int in_id, int in_value) {
+void Add(int in_id, int in_value) {
 	tmp = (Node*)malloc(sizeof(Node));
 	if (head == NULL)
 		head = tmp;
@@ -121,10 +121,10 @@ void ShowAll() {
 
 int main() {
 	
-	AddLast(1,3);
-	AddLast(3,25);
-	AddLast(6,35);
-	AddLast(21,4);
+	Add(1,3);
+	Add(3,25);
+	Add(6,35);
+	Add(21,4);
 	AddAfter(21, 33, 33);
 	ShowAll();
 

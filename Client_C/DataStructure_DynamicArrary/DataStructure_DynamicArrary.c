@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void AddLast(int item);
+void Add(int item);
 int Remove(int item), RemoveAt(int index);
 void Clear();
 
@@ -17,11 +17,10 @@ int main() {
 	// {
 	// 	Add(0);
 	// }
-	AddLast(1);
-	AddLast(3);
-	AddLast(5);
-	AddLast(5);
-	AddLast(5);
+	Add(1);
+	Add(3);
+	Add(5);
+	Add(5);
 	printf("is data 1 removed ? : %d\n", RemoveAt(1));
 	printf("is data of index 3 removed ? : %d\n", RemoveAt(3));
 	printf("is data of index 3 removed ? : %d\n", RemoveAt(3));
@@ -34,7 +33,7 @@ int main() {
 	return 0;
 }
 
-void AddLast(int item)
+void Add(int item)
 {
 	if (count == 0) {
 		data = (int*)malloc(DEFAULT_SIZE * sizeof(int));

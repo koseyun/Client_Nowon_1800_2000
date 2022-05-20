@@ -51,8 +51,7 @@ int main(int argc, char **argv) {
 	}
 
 
-
-	int* p = NULL;
+	int* p;
 	p = (int*)malloc(sizeof(int));
 
 	if (p == NULL) exit(1);

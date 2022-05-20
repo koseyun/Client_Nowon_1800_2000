@@ -21,6 +21,25 @@ enum PlayerState {
 	Hurt,
 };
 
+enum LAYER_MASK_NOT_OK {
+	GHOST, // bit ... 0000
+	PLAYER, // bit ... 0001
+	WALL, // bit ... 0010
+	GROUND, // bit ... 0011
+};
+
+
+enum LAYER_MASK_DO_USE {
+	GHOST = 0 << 0, // bit ... 0000
+	PLAYER = 1 << 0, // bit ... 0001
+	WALL = 1 << 1, // bit ... 0010
+	GROUND = 1 << 2, // bit ... 0100
+};
+
+/*enum class LAYER_MASK_64 : unsigned __int64 {
+	IDLE = 0x0000000000000000ULL
+};*/
+
 // playerState
 // 설명
 // 플레이어 상태
