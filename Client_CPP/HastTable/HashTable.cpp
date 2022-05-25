@@ -104,7 +104,15 @@ void HashTable::Delete()
 	Clear();
 	delete[] _bucket;
 }
-
+// 충돌을 더 줄일 수 있는 추가 패턴 예시(일정 자릿수 까지 10승수 곱함)
+//hollow
+//_tmpHash += h;
+//_tmpHash += o * 10;
+//_tmpHash += l * 10^2;
+//_tmpHash += l * 10^3;
+//_tmpHash += o * 10^4;
+//_tmpHash += w;
+//...
 int HashTable::Hash(string value)
 {
 	_tmpHash = 0;
