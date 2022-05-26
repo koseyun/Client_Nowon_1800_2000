@@ -2,6 +2,38 @@
 #include <iostream>
 using namespace std;
 
+void SortExamples::Merge(int arr[], int start, int end, int mid)
+{
+	int* tmp = new int[end + 1];
+
+	for (int i = start; i <= end; i++)
+	{
+		tmp[i] = arr[i];
+	}
+
+	int part1 = start;
+	int part2 = mid + 1;
+	int index = start;
+
+	while (part1 <= mid &&
+		part2 <= end)
+	{
+		if (tmp[part1] <= tmp[part2])
+		{
+			arr[index++] = tmp[part1++];
+		}
+		else
+		{
+			arr[index++] = tmp[part2++];
+		}
+	}
+
+	for (int i = 0; i < mid - part1; i++)
+	{
+		arr[index + i] = tmp[part1 + i];
+	}
+}
+
 void SortExamples::BubbleSort(int arr[], int length)
 {
 	for (int i = 0; i < length; i++)
@@ -66,6 +98,7 @@ void SortExamples::InsertionSort(int arr[], int length)
 		{
 			arr[j + 1] = arr[j];
 			j--;
+			cout << "½º¿ÒÁß.. : ";
 		}
 		arr[j + 1] = key;
 
@@ -76,5 +109,18 @@ void SortExamples::InsertionSort(int arr[], int length)
 			cout << arr[k] << ",";
 		}
 		cout << endl;
+	}
+}
+
+void SortExamples::MergeSort(int arr[], int start, int end)
+{
+	if (start < end) {
+		int mid = start + (end - 1) / 2;
+
+		MergeSort(arr, start, mid);
+		MergeSort(arr, mid + 1, end);
+
+	
+		Merge(arr, start, end, mid);
 	}
 }
