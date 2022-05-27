@@ -1,5 +1,2 @@
 ﻿  Main.cpp
-  SortExamples.cpp
-C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\SortExamples\SortExamples.cpp(7,30): error C2440: '초기화 중': 'int *'에서 'int []'(으)로 변환할 수 없습니다.
-C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\SortExamples\SortExamples.cpp(7,12): message : 참조 또는 배열에 대한 포인터로의 변환은 있지만 배열 형식으로의 변환은 없습니다.
-  코드를 생성하고 있습니다...
+  SortExamples.vcxproj -> C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\Debug\SortExamples.exe
