@@ -3,7 +3,7 @@
 
 int main() {
 
-	int arr1[10] = { 3, 6, 2, 4, 5, 1, 7, 9, 8, 0 };
+	int arr1[10] = { 7, 6, 2, 4, 5, 1, 3, 9, 8, 0 };
 	std::cout << "버블 소트 시작 : " << arr1 << std::endl;
 	SortExamples::BubbleSort(arr1, 10);
 	
@@ -26,6 +26,15 @@ int main() {
 	for (int i = 0; i < mergeSortArrayCount; i++)
 	{
 		std::cout << arr4[i];
+	}
+
+	int arr5[10] = { 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 };
+	std::cout << "퀵 소트 시작 : " << arr5 << std::endl;
+	SortExamples::QuickSort(arr5, 0, 9);
+
+	for (int i = 0; i < 10; i++)
+	{
+		std::cout << arr5[i];
 	}
 
 	return 0;

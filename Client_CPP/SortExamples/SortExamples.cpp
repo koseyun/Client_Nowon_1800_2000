@@ -55,6 +55,36 @@ void SortExamples::Merge(int arr[], int start, int end, int mid)
 	delete[] tmp;
 }
 
+int SortExamples::Partition(int arr[], int start, int end)
+{
+	int pivot = arr[(start + end) / 2];
+
+	while (true)
+	{
+		while (arr[start] < pivot) start++;
+		while (arr[end] > pivot) end--;
+
+		if (start < end) {
+			int temp = arr[end];
+			arr[end] = arr[start];
+			arr[start] = temp;
+
+			cout << "½º¿ÒÁß..";
+			for (int i = start; i <= end; i++)
+			{
+				cout << arr[i] << ", ";
+			}
+			cout << endl;
+		}
+		else
+		{
+			return end;
+		}
+
+	}
+	return 0;
+}
+
 void SortExamples::BubbleSort(int arr[], int length)
 {
 	for (int i = 0; i < length; i++)
@@ -143,5 +173,15 @@ void SortExamples::MergeSort(int arr[], int start, int end)
 
 	
 		Merge(arr, start, end, mid);
+	}
+}
+
+void SortExamples::QuickSort(int arr[], int start, int end)
+{
+	if (start < end) {
+		int p = Partition(arr, start, end);
+
+		QuickSort(arr, start, p - 1);
+		QuickSort(arr, p + 1, end);
 	}
 }
