@@ -1,27 +1,29 @@
 #pragma once
+#include <iostream>
 
 #define INIT_SIZE 10
+using namespace std;
 
 template <typename T>
 class PriorityQueue {
-	
+
 public:
 	PriorityQueue();
 	~PriorityQueue();
 	void Enqueue(const T& data);
 	T& Dequeue();
+	void PrintData();
 
 private:
 	T* _heap;
 	int _size;
 	int _capacity;
-
 };
 
 template<typename T>
 inline PriorityQueue<T>::PriorityQueue()
 {
-	_heap = new T(INIT_SIZE);
+	_heap = new T[INIT_SIZE];
 	_size = 0;
 	_capacity = INIT_SIZE;
 }
@@ -35,23 +37,25 @@ inline PriorityQueue<T>::~PriorityQueue()
 template<typename T>
 inline void PriorityQueue<T>::Enqueue(const T& data)
 {
-	if (_size >= _capacity) {
+	if (_size >= _capacity)
+	{
 		_capacity = _size * 2;
-		T* tmpHeap = new T(_capacity);
+		T* tmpHeap = new T[_capacity];
 		for (int i = 0; i < _size; i++)
 			tmpHeap[i] = _heap[i];
-
 		delete _heap;
-		_heap = new T(_capacity);
-		for (int i = 0; i < _size; i++)
+
+		_heap = new T[_capacity];
+		for (int i = 0; i < _capacity; i++)
 			_heap[i] = tmpHeap[i];
-		delete tmpHeap;		
+		delete tmpHeap;
 	}
 	_heap[_size] = data;
 
 	int parent = _size / 2;
 	int child = _size;
 
+	// bottom-up 정렬
 	while (_heap[parent] < _heap[child])
 	{
 		T tmpData = _heap[parent];
@@ -68,5 +72,52 @@ inline void PriorityQueue<T>::Enqueue(const T& data)
 template<typename T>
 inline T& PriorityQueue<T>::Dequeue()
 {
-	// // O: 여기에 return 문을 삽입합니다.
+	T top = _heap[0];
+	_heap[0] = _heap[_size - 1];
+
+	int parent = 0;
+	int child = parent * 2 + 1;
+	int doSwap = false;
+
+	// top-down 정렬
+	while (child < _size - 1)
+	{
+		// 왼쪽 자식노드 vs 오른쪽 자식노드 중 큰걸로 비교할거임
+		if ((child + 1) < (_size - 1) &&
+			_heap[child] < _heap[child + 1])
+			child++;
+
+		// 자식보다 부모가 작으면 스왑할거임
+		if (_heap[parent] < _heap[child])
+		{
+			doSwap = true;
+		}
+
+		if (doSwap)
+		{
+			T tmpData = _heap[parent];
+			_heap[parent] = _heap[child];
+			_heap[child] = tmpData;
+			doSwap = false;
+
+			parent = child;
+			child = parent * 2 + 1;
+		}
+		else
+		{
+			break;
+		}
+	}
+
+	_size--;
+	return top;
+}
+
+template<typename T>
+inline void PriorityQueue<T>::PrintData()
+{
+	cout << "Prioriry Queue Elements: ";
+	for (int i = 0; i < _size; i++)
+		cout << _heap[i];
+	cout << endl;
 }

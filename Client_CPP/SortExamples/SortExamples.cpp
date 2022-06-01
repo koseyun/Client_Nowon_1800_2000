@@ -185,3 +185,30 @@ void SortExamples::QuickSort(int arr[], int start, int end)
 		QuickSort(arr, p + 1, end);
 	}
 }
+
+void SortExamples::HeapSort(int arr[], int length)
+{
+	// 힙 자료구조 변경
+}
+
+void SortExamples::Heapify_TopDown(int arr[], int length)
+{
+	int current = 1;
+
+	while (current < length)
+	{
+		while (true)
+		{
+			int parent = current / 2;
+			if (arr[parent] < arr[current]) {
+				int temp = arr[parent];
+				arr[parent] = arr[current];
+				arr[current] = temp;
+
+				parent = current;
+			}
+
+			current++;
+		}
+	}
+}
