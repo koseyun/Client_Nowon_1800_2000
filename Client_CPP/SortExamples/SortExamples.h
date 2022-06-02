@@ -14,6 +14,7 @@ private:
 	static void Merge(int arr[], int start, int end, int mid);
 	static int Partition(int arr[], int start, int end);
 	static void Heapify_TopDown(int arr[], int length);
-
+	static void SIFT_Up(int arr[], int root, int current);
+	static void SIFT_Down(int arr[], int end, int current);
 };
 

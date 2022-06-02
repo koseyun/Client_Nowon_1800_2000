@@ -188,27 +188,87 @@ void SortExamples::QuickSort(int arr[], int start, int end)
 
 void SortExamples::HeapSort(int arr[], int length)
 {
-	// 힙 자료구조 변경
+	// 힙 자료구조로 변환
+	Heapify_TopDown(arr, length);
+
+	for (int i = 0; i < length; i++)
+	{
+		std::cout << arr[i];
+	}
+
+	// 변환된 힙 자료구조 정렬 하면서 기본 배열 자료구조로 변환
+	int end = length - 1;
+	while (end > 0)
+	{
+		int tmp = arr[0];
+		arr[0] = arr[end];
+		arr[end] = tmp;
+
+		end--;
+		SIFT_Down(arr, end, 1);
+	}
 }
 
 void SortExamples::Heapify_TopDown(int arr[], int length)
 {
-	int current = 1;
-
-	while (current < length)
+	int end = 1;
+	
+	while (end < length)
 	{
-		while (true)
+		int current = end;
+		SIFT_Up(arr, 0, end++);
+	}
+}
+
+void SortExamples::SIFT_Up(int arr[], int root, int current)
+{
+	int parent = current / 2;
+	while (current > root)
+	{
+		if (arr[parent] < arr[current])
 		{
-			int parent = current / 2;
-			if (arr[parent] < arr[current]) {
-				int temp = arr[parent];
-				arr[parent] = arr[current];
-				arr[current] = temp;
+			int tmp = arr[parent];
+			arr[parent] = arr[current];
+			arr[current] = tmp;
 
-				parent = current;
-			}
+			current = parent;
+			parent = current / 2;
+		}
+		else
+		{
+			break;
+		}
+	}
+}
 
+void SortExamples::SIFT_Down(int arr[], int end, int current)
+{
+	int parent = 0;
+	bool doSwap = false;
+
+	while (current <= end)
+	{
+		// 오른쪽 자식이 더 크면 오른쪽꺼로 스왑할지 비교함
+		if ((current + 1) <= end &&
+			arr[current] < arr[current + 1])
 			current++;
+
+		if (arr[parent] < arr[current])
+			doSwap = true;
+
+		if (doSwap)
+		{
+			int tmp = arr[parent];
+			arr[parent] = arr[current];
+			arr[current] = tmp;
+
+			doSwap = false;
+			parent = current;
+			current = parent * 2 + 1;
+		}
+		else
+		{
+			break;
 		}
 	}
 }

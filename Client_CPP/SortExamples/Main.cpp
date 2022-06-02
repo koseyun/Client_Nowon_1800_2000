@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdlib.h>
 #include "SortExamples.h"
 
 int main() {
@@ -35,6 +36,31 @@ int main() {
 	for (int i = 0; i < 10; i++)
 	{
 		std::cout << arr5[i];
+	}
+
+	int arr6[10] = { 3, 5, 9, 6, 7, 4, 8, 2, 1, 0 };
+
+	for (int i = 0; i < 10; i++)
+	{
+		arr6[i] = rand() % 100;
+	}
+
+	std::cout << std::endl;
+
+	for (int i = 0; i < 10; i++)
+	{
+		std::cout << arr6[i];
+	}
+
+	std::cout << std::endl;
+
+	std::cout << "Èü ¼ÒÆ® ½ÃÀÛ : " << arr6 << std::endl;
+	SortExamples::HeapSort(arr6, 10);
+
+	std::cout << std::endl;
+	for (int i = 0; i < 10; i++)
+	{
+		std::cout << arr6[i] << ", ";
 	}
 
 	return 0;

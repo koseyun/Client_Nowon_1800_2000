@@ -55,7 +55,7 @@ inline void PriorityQueue<T>::Enqueue(const T& data)
 	int parent = _size / 2;
 	int child = _size;
 
-	// bottom-up 정렬
+	// 밑에서 위로 정렬 (SIFT - UP)
 	while (_heap[parent] < _heap[child])
 	{
 		T tmpData = _heap[parent];
@@ -79,7 +79,7 @@ inline T& PriorityQueue<T>::Dequeue()
 	int child = parent * 2 + 1;
 	int doSwap = false;
 
-	// top-down 정렬
+	// 위에서 아래로 정렬 (SIFT - DOWN)
 	while (child < _size - 1)
 	{
 		// 왼쪽 자식노드 vs 오른쪽 자식노드 중 큰걸로 비교할거임
