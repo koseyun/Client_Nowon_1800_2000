@@ -2,6 +2,9 @@
 #include <iostream>
 using namespace std;
 
+int SortExamples::testCount1;
+int SortExamples::testCount2;
+
 void SortExamples::Merge(int arr[], int start, int end, int mid)
 {
 	static int mergeCount;
@@ -189,7 +192,8 @@ void SortExamples::QuickSort(int arr[], int start, int end)
 void SortExamples::HeapSort(int arr[], int length)
 {
 	// Èü ÀÚ·á±¸Á¶·Î º¯È¯
-	Heapify_TopDown(arr, length);
+	//Heapify_TopDown(arr, length);
+	Heapify_BottomUp(arr, length);
 
 	for (int i = 0; i < length; i++)
 	{
@@ -218,11 +222,24 @@ void SortExamples::Heapify_TopDown(int arr[], int length)
 		int current = end;
 		SIFT_Up(arr, 0, end++);
 	}
+	std::cout << "Swap È½¼ö : " << testCount1 << std::endl;
+}
+
+void SortExamples::Heapify_BottomUp(int arr[], int length)
+{
+	int end = length - 1;
+	int current = end - 1;
+
+	while (current >= 0)
+	{
+		SIFT_Down(arr, end, current--);
+	}
+	std::cout << "Swap È½¼ö : " << testCount1 << std::endl;
 }
 
 void SortExamples::SIFT_Up(int arr[], int root, int current)
 {
-	int parent = current / 2;
+	int parent = (current - 1) / 2;
 	while (current > root)
 	{
 		if (arr[parent] < arr[current])
@@ -230,9 +247,9 @@ void SortExamples::SIFT_Up(int arr[], int root, int current)
 			int tmp = arr[parent];
 			arr[parent] = arr[current];
 			arr[current] = tmp;
-
+			testCount1++;
 			current = parent;
-			parent = current / 2;
+			parent = (current - 1) / 2;
 		}
 		else
 		{
@@ -243,7 +260,7 @@ void SortExamples::SIFT_Up(int arr[], int root, int current)
 
 void SortExamples::SIFT_Down(int arr[], int end, int current)
 {
-	int parent = 0;
+	int parent = (current - 1) / 2;
 	bool doSwap = false;
 
 	while (current <= end)
@@ -261,10 +278,11 @@ void SortExamples::SIFT_Down(int arr[], int end, int current)
 			int tmp = arr[parent];
 			arr[parent] = arr[current];
 			arr[current] = tmp;
-
+			
 			doSwap = false;
 			parent = current;
 			current = parent * 2 + 1;
+			testCount1++;
 		}
 		else
 		{

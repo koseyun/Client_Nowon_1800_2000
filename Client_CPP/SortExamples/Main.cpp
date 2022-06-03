@@ -38,27 +38,25 @@ int main() {
 		std::cout << arr5[i];
 	}
 
-	int arr6[10] = { 3, 5, 9, 6, 7, 4, 8, 2, 1, 0 };
+	int arr6[1000];
 
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < 1000; i++)
 	{
-		arr6[i] = rand() % 100;
+		arr6[i] = rand() % 1000;
 	}
 
 	std::cout << std::endl;
-
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < 1000; i++)
 	{
 		std::cout << arr6[i];
 	}
-
 	std::cout << std::endl;
 
 	std::cout << "Èü ¼ÒÆ® ½ÃÀÛ : " << arr6 << std::endl;
-	SortExamples::HeapSort(arr6, 10);
+	SortExamples::HeapSort(arr6, 1000);
 
 	std::cout << std::endl;
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < 1000; i++)
 	{
 		std::cout << arr6[i] << ", ";
 	}
