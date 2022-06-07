@@ -1,4 +1,4 @@
 ﻿  STLAlgonithm.cpp
-C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\STLAlgonithm\STLAlgonithm.cpp(61,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\STLAlgonithm\STLAlgonithm.cpp(71,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\STLAlgonithm\STLAlgonithm.cpp(66,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\STLAlgonithm\STLAlgonithm.cpp(96,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
   STLAlgonithm.vcxproj -> C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\Debug\STLAlgonithm.exe

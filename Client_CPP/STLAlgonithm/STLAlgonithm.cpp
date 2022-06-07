@@ -13,11 +13,11 @@ public:
 		this->score = score;
 	}
 
-	bool operator < (Player& player) {
+	bool operator < (Player& player) const {
 		return this->score < player.score;
 	}
 
-	bool operator <= (Player& player) {
+	bool operator <= (Player& player) const {
 		return this->score <= player.score;
 	}
 
@@ -29,6 +29,11 @@ public:
 		return this->score >= player.score;
 	}
 };
+
+bool IsABeatB(Player& player1, Player& player2)
+{
+	return player1 > player2;
+}
 
 int main() {
 	
@@ -63,14 +68,39 @@ int main() {
 	cout << endl;
 
 	vector<Player> players;
+	players.push_back(Player("Ailey", 45));
+	players.push_back(Player("Su", 40));
+	players.push_back(Player("Julia", 5));
+	players.push_back(Player("Ryu", 35));
 	players.push_back(Player("Luke", 10));
 	players.push_back(Player("Dina", 20));
-	players.push_back(Player("Julia", 5));
+	players.push_back(Player("Terry", 15));
+	
 
-	sort(players.begin(), players.end());
+
+	//sort(players.begin(), players.end());
+
+	//partial_sort(players.begin(), players.begin() + 3, players.end());
+	//partial_sort(players.begin(), players.begin() + 3, players.end(), greater<>());
+	//partial_sort(players.begin(), players.begin() + 3, players.end(), less<>());
+	//partial_sort(players.begin(), players.begin() + 3, players.end(), IsABeatB);
+
+	//cout << players[2].nickName << endl;
+	//nth_element(players.begin(), players.begin() + 2, players.end(), greater<>());
+	//cout << players[2].nickName << endl;
+
+	sort(players.begin(), players.end(), less<>());
+	stable_sort(players.begin(), players.end(), less<>());
+	vector<int> test;
+	test.push_back(1);
+	test.push_back(1);
+	stable_sort(test.begin(), test.end());
+
+
 	for (int i = 0; i < players.size(); i++)
 		cout << players[i].nickName << ", ";
 	cout << endl;
+
 
 
 	return 0;
