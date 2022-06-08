@@ -1,4 +1,5 @@
 ﻿  STLAlgonithm.cpp
 C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\STLAlgonithm\STLAlgonithm.cpp(66,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\STLAlgonithm\STLAlgonithm.cpp(96,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-  STLAlgonithm.vcxproj -> C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\Debug\STLAlgonithm.exe
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\STLAlgonithm\STLAlgonithm.cpp(99,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\STLAlgonithm\STLAlgonithm.cpp(105,12): error C3861: 'accumulate': 식별자를 찾을 수 없습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\STLAlgonithm\STLAlgonithm.cpp(110,2): error C3861: 'adjacent_difference': 식별자를 찾을 수 없습니다.
