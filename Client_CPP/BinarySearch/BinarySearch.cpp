@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <algorithm>
+
 using namespace std;
 
 int BinarySearch(int arr[], int low, int high, int value)
@@ -17,8 +18,8 @@ int BinarySearch(int arr[], int low, int high, int value)
         return BinarySearch(arr, mid + 1, high, value);
     else
         return BinarySearch(arr, low, mid - 1, value);
-
 }
+
 int main()
 {
     int arr[] = { 11,13,15,17,19,12,14,16,18,10 };
@@ -33,7 +34,8 @@ int main()
     cout << result << endl;
 
     if (binary_search(arr, arr + 10, 14));
-        cout << "14 를 찾았다네" << endl;
+    cout << "14 를 찾았다네" << endl;
+
 }
 
 // 프로그램 실행: <Ctrl+F5> 또는 [디버그] > [디버깅하지 않고 시작] 메뉴
