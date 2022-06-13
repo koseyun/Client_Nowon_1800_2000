@@ -145,7 +145,6 @@
     <ClInclude Include="WinAPI_FirstCodereview.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Day1_Start.cpp" />
     <ClCompile Include="WinAPI_FirstCodereview.cpp" />
   </ItemGroup>
   <ItemGroup>

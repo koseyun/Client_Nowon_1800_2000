@@ -32,9 +32,6 @@
     <ClCompile Include="WinAPI_FirstCodereview.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Day1_Start.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="WinAPI_FirstCodereview.rc">

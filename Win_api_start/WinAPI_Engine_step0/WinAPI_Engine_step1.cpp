@@ -1,0 +1,273 @@
+﻿// WinAPI_Engine_step0.cpp : 애플리케이션에 대한 진입점을 정의합니다.
+//
+
+#include "framework.h"
+#include "WinAPI_Engine_step1.h"
+#include "CAPI_Engine.h"
+
+/*
+
+
+
+*/
+
+//#define MAX_LOADSTRING 100
+
+// 전역 변수:
+//HINSTANCE hInst;                                // 현재 인스턴스입니다.
+//WCHAR szTitle[MAX_LOADSTRING];                  // 제목 표시줄 텍스트입니다.
+//WCHAR szWindowClass[MAX_LOADSTRING];            // 기본 창 클래스 이름입니다.
+
+// 이 코드 모듈에 포함된 함수의 선언을 전달합니다:
+//ATOM                MyRegisterClass(HINSTANCE hInstance);
+//BOOL                InitInstance(HINSTANCE, int);
+//LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
+//INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
+
+int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
+                     _In_opt_ HINSTANCE hPrevInstance,
+                     _In_ LPWSTR    lpCmdLine,
+                     _In_ int       nCmdShow)
+{
+    UNREFERENCED_PARAMETER(hPrevInstance);
+    UNREFERENCED_PARAMETER(lpCmdLine);
+
+
+    CAPI_Engine tEngine;
+    tEngine.Create(hInstance, nCmdShow);
+
+    MSG msg = { 0 };
+    msg = tEngine.Run();
+
+    return (int)msg.wParam;
+
+
+    ////Create
+    //// TODO: 여기에 코드를 입력합니다.
+    //
+    //// 전역 문자열을 초기화합니다.
+    //LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
+    //LoadStringW(hInstance, IDC_WINAPIENGINESTEP0, szWindowClass, MAX_LOADSTRING);
+    //MyRegisterClass(hInstance);
+    //
+    //// 애플리케이션 초기화를 수행합니다:
+    //if (!InitInstance (hInstance, nCmdShow))
+    //{
+    //    return FALSE;
+    //}
+    
+    
+    ////Run
+    //HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_WINAPIENGINESTEP0));
+    //
+    //MSG msg;
+    //
+    //// 기본 메시지 루프입니다:
+    //while (GetMessage(&msg, nullptr, 0, 0))
+    //{
+    //    if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+    //    {
+    //        TranslateMessage(&msg);
+    //        DispatchMessage(&msg);
+    //    }
+    //}
+    //
+    //return (int) msg.wParam;
+}
+
+
+
+//
+//  함수: MyRegisterClass()
+//
+//  용도: 창 클래스를 등록합니다.
+//
+//ATOM MyRegisterClass(HINSTANCE hInstance)
+//{
+//    WNDCLASSEXW wcex;
+//
+//    wcex.cbSize = sizeof(WNDCLASSEX);
+//
+//    wcex.style          = CS_HREDRAW | CS_VREDRAW;
+//    wcex.lpfnWndProc    = WndProc;
+//    wcex.cbClsExtra     = 0;
+//    wcex.cbWndExtra     = 0;
+//    wcex.hInstance      = hInstance;
+//    wcex.hIcon          = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_WINAPIENGINESTEP0));
+//    wcex.hCursor        = LoadCursor(nullptr, IDC_ARROW);
+//    wcex.hbrBackground  = (HBRUSH)(COLOR_WINDOW+1);
+//    wcex.lpszMenuName   = MAKEINTRESOURCEW(IDC_WINAPIENGINESTEP0);
+//    wcex.lpszClassName  = szWindowClass;
+//    wcex.hIconSm        = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
+//
+//    return RegisterClassExW(&wcex);
+//}
+
+////
+////   함수: InitInstance(HINSTANCE, int)
+////
+////   용도: 인스턴스 핸들을 저장하고 주 창을 만듭니다.
+////
+////   주석:
+////
+////        이 함수를 통해 인스턴스 핸들을 전역 변수에 저장하고
+////        주 프로그램 창을 만든 다음 표시합니다.
+////
+//BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
+//{
+//   hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
+//
+//   HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
+//      CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
+//
+//   if (!hWnd)
+//   {
+//      return FALSE;
+//   }
+//
+//   ShowWindow(hWnd, nCmdShow);
+//   UpdateWindow(hWnd);
+//
+//   return TRUE;
+//}
+
+////
+////  함수: WndProc(HWND, UINT, WPARAM, LPARAM)
+////
+////  용도: 주 창의 메시지를 처리합니다.
+////
+////  WM_COMMAND  - 애플리케이션 메뉴를 처리합니다.
+////  WM_PAINT    - 주 창을 그립니다.
+////  WM_DESTROY  - 종료 메시지를 게시하고 반환합니다.
+////
+////
+//LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
+//{
+//    switch (message)
+//    {
+//    case WM_COMMAND:
+//        {
+//            int wmId = LOWORD(wParam);
+//            // 메뉴 선택을 구문 분석합니다:
+//            switch (wmId)
+//            {
+//            case IDM_ABOUT:
+//                DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
+//                break;
+//            case IDM_EXIT:
+//                DestroyWindow(hWnd);
+//                break;
+//            default:
+//                return DefWindowProc(hWnd, message, wParam, lParam);
+//            }
+//        }
+//        break;
+//    case WM_PAINT:
+//        {
+//            PAINTSTRUCT ps;
+//            HDC hdc = BeginPaint(hWnd, &ps);
+//            // TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다...
+//            EndPaint(hWnd, &ps);
+//        }
+//        break;
+//    case WM_DESTROY:
+//        PostQuitMessage(0);
+//        break;
+//    default:
+//        return DefWindowProc(hWnd, message, wParam, lParam);
+//    }
+//    return 0;
+//}
+//
+//// 정보 대화 상자의 메시지 처리기입니다.
+//INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
+//{
+//    UNREFERENCED_PARAMETER(lParam);
+//    switch (message)
+//    {
+//    case WM_INITDIALOG:
+//        return (INT_PTR)TRUE;
+//
+//    case WM_COMMAND:
+//        if (LOWORD(wParam) == IDOK || LOWORD(wParam) == IDCANCEL)
+//        {
+//            EndDialog(hDlg, LOWORD(wParam));
+//            return (INT_PTR)TRUE;
+//        }
+//        break;
+//    }
+//    return (INT_PTR)FALSE;
+//}
+
+/*
+
+이 예시는 'CAPIEngine클래스'를 만들기 시작하는 예시이다.
+
+    윈도우 응용프로그램을 만들고 구동시키는 코드를 클래스화 해보는 것이 목적이다.
+
+i) CAPI_Engine 클래스를 새로 만들어 추가한다
+ii) 다음처럼 일단 '가짜구현' 해본다
+    다음의 함수들은 현재 동작하고 있는 제어구조들을 보고 모양을 일단 빠르게 결정해본 것이다
+
+    BOOL CAPI_Engine::Create()
+    {
+        return TRUE;
+    }
+
+    MSG CAPI_Engine::Run()
+    {
+        MSG msg = { 0 };
+
+        return msg;
+    }
+
+    iii) 다음으로는 현재 동작하고 있는 프로그램에 선언된 함수와 선언들을 멤버함수로 가져온다
+        CAPI_Engine.h 의 내용처럼 적절하게 접근제어지정한다
+
+        WndProc, About 은 아직이다
+
+        이 과정에서 필요한 변수들이 체크될 터이니 관련된 변수들도 적절하게 멤버변수로 만들어준다
+
+    iv) WndProc, About 도 멤버함수로 만들어준다
+        이것들은 윈도우 클래스의 lpfnWndProc 에 등록될 것인데 이것은 전역함수 형식을 요구한다
+        그러므로 전역적인 데이터 성격을 가진 멤버함수로 선언한다 (static)
+
+        관련된 변수도 그렇게 한다. hInst
+
+    v) WinMain에 호출부의 코드를 작성하고 원래처럼 동작하는지 테스트한다.
+
+*/
+
+class CAPI_Engine : public CAPI_Engine
+{
+public:
+
+    CAPI_Engine()
+    {
+
+    }
+    virtual ~CAPI_Engine() // 가상소멸자
+    {
+
+    }
+};
+
+int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
+                      _In_opt_ HINSTANCE hPrevInstance,
+                      _In_ LPWSTR    lpCmdLine,
+                      _In_ int       nCmdShow)
+{
+    UNREFERENCED_PARAMETER(hPrevInstance);
+    UNREFERENCED_PARAMETER(lpCmdLine);
+
+
+    //CAPI_Engine tEngine;
+    //tEngine.Create(hInstance, nCmdShow);
+    CAPI_Engine tEngine;
+    tEngine.Create(hInstance, nCmdShow);
+
+    MSG msg = { 0 };
+    msg = tEngine.Run();
+
+    return (int)msg.wParam;
+}
