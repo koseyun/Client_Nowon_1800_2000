@@ -16,6 +16,11 @@ public:
 	virtual void OnDestroy();
 	virtual void OnUpdate();
 
+	// 복사생성과 복사대입을 금지하기 위해서 private로 접근제한하였다
+private:
+	CAPI_Engine(const CAPI_Engine& tEngine) {};
+	CAPI_Engine& operator=(const CAPI_Engine& tEngine) {};
+
 protected:
 	ATOM                MyRegisterClass(HINSTANCE hInstance);
 	BOOL                InitInstance(HINSTANCE, int);
@@ -31,7 +36,5 @@ public:
 	// 정적멤버함수인 WndProc에서 사용하고 있으므로 static 예약어를 적용함
 	static HINSTANCE hInst;                                // 현재 인스턴스입니다.
 	
-
-
 };
 

@@ -1,2 +1,4 @@
-﻿  WinAPI_Engine_step1.cpp
-C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\WinAPI_Engine_step0\WinAPI_Engine_step1.cpp(5,10): fatal error C1083: 포함 파일을 열 수 없습니다. 'WinAPI_Engine_step1.h': No such file or directory
+﻿  CAPI_Engine.cpp
+  WinAPI_Engine_step1.cpp
+  코드를 생성하고 있습니다...
+  WinAPI_Engine_step1.vcxproj -> C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\x64\Debug\WinAPI_Engine_step1.exe

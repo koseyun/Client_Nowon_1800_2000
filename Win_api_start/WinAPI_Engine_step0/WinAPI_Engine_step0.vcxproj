@@ -150,11 +150,11 @@
     <ClCompile Include="WinAPI_Engine_step0.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="WinAPI_Engine_step0.rc" />
-  </ItemGroup>
-  <ItemGroup>
     <Image Include="small.ico" />
     <Image Include="WinAPI_Engine_step0.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="WinAPI_Engine_step0.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,3 +1,4 @@
-﻿CAPI_Engine.obj : error LNK2019: "public: virtual __cdecl CAPI_Engine::~CAPI_Engine(void)" (??1CAPI_Engine@@UEAA@XZ)"public: virtual void * __cdecl CAPI_Engine::`scalar deleting destructor'(unsigned int)" (??_GCAPI_Engine@@UEAAPEAXI@Z) 함수에서 참조되는 확인할 수 없는 외부 기호
-WinAPI_Engine_step0.obj : error LNK2001: 확인할 수 없는 외부 기호 "public: virtual __cdecl CAPI_Engine::~CAPI_Engine(void)" (??1CAPI_Engine@@UEAA@XZ)
-C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\x64\Debug\WinAPI_Engine_step0.exe : fatal error LNK1120: 1개의 확인할 수 없는 외부 참조입니다.
+﻿  CAPI_Engine.cpp
+  WinAPI_Engine_step0.cpp
+  코드를 생성하고 있습니다...
+  WinAPI_Engine_step0.vcxproj -> C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\x64\Debug\WinAPI_Engine_step0.exe

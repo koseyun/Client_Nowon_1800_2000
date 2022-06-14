@@ -47,9 +47,4 @@
       <Filter>리소스 파일</Filter>
     </Image>
   </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="..\WinAPI_Engine_step0\WinAPI_Engine_step1.rc">
-      <Filter>리소스 파일</Filter>
-    </ResourceCompile>
-  </ItemGroup>
 </Project>

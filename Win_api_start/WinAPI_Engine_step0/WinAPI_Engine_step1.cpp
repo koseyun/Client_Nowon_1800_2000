@@ -24,22 +24,22 @@
 //LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 //INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
-int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
-                     _In_opt_ HINSTANCE hPrevInstance,
-                     _In_ LPWSTR    lpCmdLine,
-                     _In_ int       nCmdShow)
-{
-    UNREFERENCED_PARAMETER(hPrevInstance);
-    UNREFERENCED_PARAMETER(lpCmdLine);
-
-
-    CAPI_Engine tEngine;
-    tEngine.Create(hInstance, nCmdShow);
-
-    MSG msg = { 0 };
-    msg = tEngine.Run();
-
-    return (int)msg.wParam;
+//int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
+//                     _In_opt_ HINSTANCE hPrevInstance,
+//                     _In_ LPWSTR    lpCmdLine,
+//                     _In_ int       nCmdShow)
+//{
+//    UNREFERENCED_PARAMETER(hPrevInstance);
+//    UNREFERENCED_PARAMETER(lpCmdLine);
+//
+//
+//    CAPI_Engine tEngine;
+//    tEngine.Create(hInstance, nCmdShow);
+//
+//    MSG msg = { 0 };
+//    msg = tEngine.Run();
+//
+//    return (int)msg.wParam;
 
 
     ////Create
@@ -73,7 +73,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     //}
     //
     //return (int) msg.wParam;
-}
+//}
 
 
 
@@ -199,56 +199,45 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 //    return (INT_PTR)FALSE;
 //}
 
-/*
-
-이 예시는 'CAPIEngine클래스'를 만들기 시작하는 예시이다.
-
-    윈도우 응용프로그램을 만들고 구동시키는 코드를 클래스화 해보는 것이 목적이다.
-
-i) CAPI_Engine 클래스를 새로 만들어 추가한다
-ii) 다음처럼 일단 '가짜구현' 해본다
-    다음의 함수들은 현재 동작하고 있는 제어구조들을 보고 모양을 일단 빠르게 결정해본 것이다
-
-    BOOL CAPI_Engine::Create()
-    {
-        return TRUE;
-    }
-
-    MSG CAPI_Engine::Run()
-    {
-        MSG msg = { 0 };
-
-        return msg;
-    }
-
-    iii) 다음으로는 현재 동작하고 있는 프로그램에 선언된 함수와 선언들을 멤버함수로 가져온다
-        CAPI_Engine.h 의 내용처럼 적절하게 접근제어지정한다
-
-        WndProc, About 은 아직이다
-
-        이 과정에서 필요한 변수들이 체크될 터이니 관련된 변수들도 적절하게 멤버변수로 만들어준다
-
-    iv) WndProc, About 도 멤버함수로 만들어준다
-        이것들은 윈도우 클래스의 lpfnWndProc 에 등록될 것인데 이것은 전역함수 형식을 요구한다
-        그러므로 전역적인 데이터 성격을 가진 멤버함수로 선언한다 (static)
-
-        관련된 변수도 그렇게 한다. hInst
-
-    v) WinMain에 호출부의 코드를 작성하고 원래처럼 동작하는지 테스트한다.
-
-*/
-
-class CAPI_Engine : public CAPI_Engine
+class CAPIEngine : public CAPI_Engine
 {
 public:
 
-    CAPI_Engine()
+    CAPIEngine()
     {
 
     }
-    virtual ~CAPI_Engine() // 가상소멸자
+    virtual ~CAPIEngine() // 가상소멸자
     {
 
+    }
+
+    // 복사생성과 복사대입을 금지하기 위해서 private로 접근제한하였다
+private:
+    CAPIEngine(const CAPIEngine& tEngine) {};
+    CAPIEngine& operator=(const CAPIEngine& tEngine) {};
+
+public:
+    virtual void OnCreate() override
+    {
+        CAPI_Engine::OnCreate();
+        
+        // todo
+        WCHAR szTemp[256] = { 0 };
+        wsprintf(szTemp, L"CRyu_Engine::Create\n");
+        OutputDebugString(szTemp);
+    }
+    virtual void OnDestroy() override
+    {
+        CAPI_Engine::OnDestroy();
+
+        // todo
+    }
+    virtual void OnUpdate() override
+    {
+        CAPI_Engine::OnUpdate();
+
+        // todo
     }
 };
 
@@ -261,13 +250,16 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     UNREFERENCED_PARAMETER(lpCmdLine);
 
 
-    //CAPI_Engine tEngine;
-    //tEngine.Create(hInstance, nCmdShow);
-    CAPI_Engine tEngine;
+    CAPIEngine tEngine;
     tEngine.Create(hInstance, nCmdShow);
 
     MSG msg = { 0 };
     msg = tEngine.Run();
+
+    //// 이런 경우를 허용하지 말자
+    //CAPIEngine tB = tEngine; // 복사생성자
+    //CAPIEngine tA;
+    //tEngine = tA; // 복사대입연산자
 
     return (int)msg.wParam;
 }

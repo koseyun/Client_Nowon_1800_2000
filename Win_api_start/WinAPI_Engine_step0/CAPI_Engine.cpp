@@ -8,6 +8,11 @@ CAPI_Engine::CAPI_Engine()
     memset(szWindowClass, 0, MAX_LOADSTRING * sizeof(WCHAR));
 }
 
+CAPI_Engine::~CAPI_Engine()
+{
+}
+
+
 
 BOOL CAPI_Engine::Create(HINSTANCE hInstance, int nCmdShow)
 {
@@ -15,8 +20,14 @@ BOOL CAPI_Engine::Create(HINSTANCE hInstance, int nCmdShow)
     // TODO: 여기에 코드를 입력합니다.
 
     // 전역 문자열을 초기화합니다.
-    LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
-    LoadStringW(hInstance, IDC_WINAPIENGINESTEP0, szWindowClass, MAX_LOADSTRING);
+    /*LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
+    LoadStringW(hInstance, IDC_WINAPIENGINESTEP0, szWindowClass, MAX_LOADSTRING);*/
+
+    wsprintf(szTitle, L"title");
+    wsprintf(szWindowClass, L"winclass");
+
+
+
     MyRegisterClass(hInstance);
 
     // 애플리케이션 초기화를 수행합니다:
@@ -31,6 +42,8 @@ BOOL CAPI_Engine::Create(HINSTANCE hInstance, int nCmdShow)
 MSG CAPI_Engine::Run()
 {
 	MSG msg = { 0 };
+
+    OnCreate();
 
     //HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_WINAPIENGINESTEP0));
     HACCEL hAccelTable = LoadAccelerators(hInst, MAKEINTRESOURCE(IDC_WINAPIENGINESTEP0));
@@ -47,6 +60,8 @@ MSG CAPI_Engine::Run()
         }
     }
 
+    OnDestroy();
+
     //return (int)msg.wParam;
 
 	return msg;
@@ -54,14 +69,23 @@ MSG CAPI_Engine::Run()
 
 void CAPI_Engine::OnCreate()
 {
+    WCHAR szTemp[256] = { 0 };
+    wsprintf(szTemp, L"CAPI_Engine::Create\n");
+    OutputDebugString(szTemp);
 }
 
 void CAPI_Engine::OnDestroy()
 {
+    WCHAR szTemp[256] = { 0 };
+    wsprintf(szTemp, L"CAPI_Engine::Destroy\n");
+    OutputDebugString(szTemp);
 }
 
 void CAPI_Engine::OnUpdate()
 {
+    WCHAR szTemp[256] = { 0 };
+    wsprintf(szTemp, L"CAPI_Engine::OuUpdate\n");
+    OutputDebugString(szTemp);
 }
 
 
@@ -81,12 +105,12 @@ ATOM CAPI_Engine::MyRegisterClass(HINSTANCE hInstance)
     wcex.cbClsExtra = 0;
     wcex.cbWndExtra = 0;
     wcex.hInstance = hInstance;
-    wcex.hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_WINAPIENGINESTEP0));
-    wcex.hCursor = LoadCursor(nullptr, IDC_ARROW);
+    wcex.hIcon = LoadIcon(hInstance, nullptr);//MAKEINTRESOURCE(IDI_WINAPIENGINESTEP0));
+    wcex.hCursor = LoadCursor(nullptr, nullptr);//IDC_ARROW);
     wcex.hbrBackground = (HBRUSH)(COLOR_WINDOW+1);
-    wcex.lpszMenuName = MAKEINTRESOURCEW(IDC_WINAPIENGINESTEP0);
+    wcex.lpszMenuName = nullptr;//MAKEINTRESOURCEW(IDC_WINAPIENGINESTEP0);
     wcex.lpszClassName = szWindowClass;
-    wcex.hIconSm = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
+    wcex.hIconSm = LoadIcon(wcex.hInstance, nullptr);//MAKEINTRESOURCE(IDI_SMALL));
 
     return RegisterClassExW(&wcex);
 }
