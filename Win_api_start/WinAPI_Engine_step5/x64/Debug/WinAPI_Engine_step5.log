@@ -1,0 +1,9 @@
+﻿  CAPI_Engine.cpp
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\WinAPI_Engine_step4\CAPI_Engine.cpp(285,64): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\WinAPI_Engine_step4\CAPI_Engine.cpp(285,50): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\WinAPI_Engine_step4\CAPI_Engine.cpp(285,36): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\WinAPI_Engine_step4\CAPI_Engine.cpp(285,22): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  CUnit.cpp
+  main.cpp
+  코드를 생성하고 있습니다...
+  WinAPI_Engine_step5.vcxproj -> C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\x64\Debug\WinAPI_Engine_step5.exe

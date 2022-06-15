@@ -140,7 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\WinAPI_FirstCodereview\Day1,2_Start.cpp" />
-    <ClCompile Include="Day3.cpp" />
+    <ClCompile Include="Day5.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

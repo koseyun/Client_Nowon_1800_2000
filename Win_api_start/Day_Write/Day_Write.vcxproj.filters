@@ -18,7 +18,7 @@
     <ClCompile Include="..\WinAPI_FirstCodereview\Day1,2_Start.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Day3.cpp">
+    <ClCompile Include="Day5.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
