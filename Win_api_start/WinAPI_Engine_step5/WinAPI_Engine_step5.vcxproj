@@ -18,6 +18,28 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CAPI_Engine.h" />
+    <ClInclude Include="CTexture.h" />
+    <ClInclude Include="CUnit.h" />
+    <ClInclude Include="framework.h" />
+    <ClInclude Include="main.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CAPI_Engine.cpp" />
+    <ClCompile Include="CTexture.cpp" />
+    <ClCompile Include="CUnit.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="WinAPI_Engine_step0.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="small.ico" />
+    <Image Include="WinAPI_Engine_step0.ico" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -138,26 +160,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="..\WinAPI_Engine_step4\CAPI_Engine.h" />
-    <ClInclude Include="..\WinAPI_Engine_step4\CUnit.h" />
-    <ClInclude Include="..\WinAPI_Engine_step4\framework.h" />
-    <ClInclude Include="..\WinAPI_Engine_step4\main.h" />
-    <ClInclude Include="..\WinAPI_Engine_step4\Resource.h" />
-    <ClInclude Include="..\WinAPI_Engine_step4\targetver.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\WinAPI_Engine_step4\CAPI_Engine.cpp" />
-    <ClCompile Include="..\WinAPI_Engine_step4\CUnit.cpp" />
-    <ClCompile Include="..\WinAPI_Engine_step4\main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="..\WinAPI_Engine_step4\small.ico" />
-    <Image Include="..\WinAPI_Engine_step4\WinAPI_Engine_step0.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="..\WinAPI_Engine_step4\WinAPI_Engine_step0.rc" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

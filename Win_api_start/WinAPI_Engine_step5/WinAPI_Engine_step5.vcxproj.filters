@@ -15,47 +15,53 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\WinAPI_Engine_step4\CUnit.h">
+    <ClInclude Include="CAPI_Engine.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="..\WinAPI_Engine_step4\framework.h">
+    <ClInclude Include="CTexture.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="..\WinAPI_Engine_step4\main.h">
+    <ClInclude Include="CUnit.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="..\WinAPI_Engine_step4\Resource.h">
+    <ClInclude Include="framework.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="..\WinAPI_Engine_step4\targetver.h">
+    <ClInclude Include="main.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="..\WinAPI_Engine_step4\CAPI_Engine.h">
+    <ClInclude Include="Resource.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\WinAPI_Engine_step4\main.cpp">
+    <ClCompile Include="CAPI_Engine.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="..\WinAPI_Engine_step4\CAPI_Engine.cpp">
+    <ClCompile Include="CTexture.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="..\WinAPI_Engine_step4\CUnit.cpp">
+    <ClCompile Include="CUnit.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\WinAPI_Engine_step4\small.ico">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="..\WinAPI_Engine_step4\WinAPI_Engine_step0.ico">
-      <Filter>리소스 파일</Filter>
-    </Image>
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="..\WinAPI_Engine_step4\WinAPI_Engine_step0.rc">
+    <ResourceCompile Include="WinAPI_Engine_step0.rc">
       <Filter>리소스 파일</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="small.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="WinAPI_Engine_step0.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
   </ItemGroup>
 </Project>

@@ -2,6 +2,7 @@
 #include "main.h"
 #include "CAPI_Engine.h"
 #include "CUnit.h"
+#include "CTexture.h"
 
 /*
     // step5
@@ -29,6 +30,7 @@ class CAPIEngine : public CAPI_Engine
 {
 public:
     CUnit* mpUnit = nullptr;
+    CTexture* mpTexture = nullptr;
 
 public:
 
@@ -55,11 +57,21 @@ public:
         WCHAR szTemp[256] = { 0 };
         wsprintf(szTemp, L"CAPIEngine::Create\n");
         OutputDebugString(szTemp);
+
         mpUnit = new CUnit();
+
+        mpTexture = new CTexture();
+        mpTexture->LoadTexture(this->hInst, this->mhDC, TEXT("resources/bongbong_0.bmp"));
     }
 
     virtual void OnDestroy() override
     {
+        if (nullptr != mpTexture)
+        {
+            delete mpTexture;
+            mpTexture = nullptr;
+        }
+
         // todo
         if (nullptr != mpUnit)
         {
@@ -111,41 +123,48 @@ public:
 
 
         // render
-
-
         mpUnit->Render(this);
 
-        // memory dc 를 만든다
-        HDC thDCMem = CreateCompatibleDC(this->mhDC);
-
-        // 설정할 비트맵 도구를 생성한다
-        // 여기서는 파일에서 로드하여 만드는 것을 가정하고 있다
-        HBITMAP thBitmap = (HBITMAP)LoadImage(hInst, TEXT("resources/bongbong_0.bmp"), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
-
-        // 위에서 생성한 비트맵 도구를 현재 비트맵 도구로 설정한다
-        // 리턴값으로는 이전에 사용하던 비트맵 도구가 리턴된다
-        HBITMAP thOldBitmap = (HBITMAP)SelectObject(thDCMem, thBitmap);
-
-        // 비트맵 도구의 핸들을 이용하여 BITMAP info 정보를 얻는다
-        BITMAP tBitmapInfo;
-        GetObject(thBitmap, sizeof(tBitmapInfo), &tBitmapInfo);
-
-        OutputDebugString(L"width %d", tBitmapInfo.bmWidth);
-
         BitBlt(this->mhDC, // 현재화면 DC
-            100, 100,
+            //100, 100,
+            mpUnit->mX, mpUnit->mY,
             //0, 0,
-            tBitmapInfo.bmWidth, tBitmapInfo.bmHeight,
-            thDCMem, // 메모리 DC
+            mpTexture->mBitmapInfo.bmWidth, mpTexture->mBitmapInfo.bmHeight,
+            mpTexture->mhDCMem, // 메모리 DC
             0, 0, SRCCOPY);
 
-        // 이전에 사용하던 비트맵 도구를 다시 현재 비트맵 도구로 설정하고
-        SelectObject(thDCMem, thOldBitmap);
-        // 현재 사용하던 비트맵 도구는 이제 해제한다
-        DeleteObject(thBitmap);
 
-        // DC 도 해제한다
-        DeleteDC(thDCMem);
+        //// memory dc 를 만든다
+        //HDC thDCMem = CreateCompatibleDC(this->mhDC);
+
+        //// 설정할 비트맵 도구를 생성한다
+        //// 여기서는 파일에서 로드하여 만드는 것을 가정하고 있다
+        //HBITMAP thBitmap = (HBITMAP)LoadImage(hInst, TEXT("resources/bongbong_0.bmp"), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
+
+        //// 위에서 생성한 비트맵 도구를 현재 비트맵 도구로 설정한다
+        //// 리턴값으로는 이전에 사용하던 비트맵 도구가 리턴된다
+        //HBITMAP thOldBitmap = (HBITMAP)SelectObject(thDCMem, thBitmap);
+
+        //// 비트맵 도구의 핸들을 이용하여 BITMAP info 정보를 얻는다
+        //BITMAP tBitmapInfo;
+        //GetObject(thBitmap, sizeof(tBitmapInfo), &tBitmapInfo);
+
+        //OutputDebugString(L"width %d", tBitmapInfo.bmWidth);
+
+        //BitBlt(this->mhDC, // 현재화면 DC
+        //    100, 100,
+        //    //0, 0,
+        //    tBitmapInfo.bmWidth, tBitmapInfo.bmHeight,
+        //    thDCMem, // 메모리 DC
+        //    0, 0, SRCCOPY);
+
+        //// 이전에 사용하던 비트맵 도구를 다시 현재 비트맵 도구로 설정하고
+        //SelectObject(thDCMem, thOldBitmap);
+        //// 현재 사용하던 비트맵 도구는 이제 해제한다
+        //DeleteObject(thBitmap);
+
+        //// DC 도 해제한다
+        //DeleteDC(thDCMem);
 
         
     }

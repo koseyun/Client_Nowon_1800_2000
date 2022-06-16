@@ -1,7 +1,7 @@
 #include "CAPI_Engine.h"
 #include "Resource.h"
 
-HINSTANCE CAPI_Engine::hInst = nullptr;
+//HINSTANCE CAPI_Engine::hInst = nullptr;
 
 CAPI_Engine::CAPI_Engine()
 {
@@ -200,7 +200,7 @@ LRESULT CALLBACK CAPI_Engine::WndProc(HWND hWnd, UINT message, WPARAM wParam, LP
         switch (wmId)
         {
         case IDM_ABOUT:
-            DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
+            //DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
             break;
         case IDM_EXIT:
             DestroyWindow(hWnd);

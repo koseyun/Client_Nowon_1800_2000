@@ -1,9 +1,0 @@
-/*
-	mpCurR = A;
-
-	------------
-
-	mpCurR = Bitmap;
-
-
-*/
