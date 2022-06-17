@@ -47,7 +47,8 @@ MSG CAPI_Engine::Run()
    mhDC = GetDC(mhWnd);
 
    mpBackBuffer = new CTexture();
-   mpBackBuffer->LoadTexture(hInst, mhDC, TEXT("resources/backbuffer_0.bmp"));
+   //mpBackBuffer->LoadTexture(hInst, mhDC, TEXT("resources/backbuffer_0.bmp"));
+   mpBackBuffer->CreateBackBuffer(hInst, mhDC);
 
     OnCreate();
 
