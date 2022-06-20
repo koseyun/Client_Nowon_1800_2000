@@ -1,4 +1,5 @@
 #pragma once
+#include "SVector2D.h"
 
 class CObjectAPI
 {
@@ -7,6 +8,9 @@ public:
 	virtual ~CObjectAPI();
 
 public:
+	// 위치 정보
+	SVector2D mPosition;
+
 	// 참조 카운팅 변수
 	int mRef = 0;
 

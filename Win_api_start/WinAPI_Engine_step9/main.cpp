@@ -5,21 +5,11 @@
 #include "CTexture.h"
 #include "CObjectAPI.h"
 
+#include <list>
+using namespace std;
+
 /*
-    // step9
-
-    CUnit을 게임월드에 임의의 객체로 가정하고 지난 코드를 작성했다
-    여기서는 CUnit이 가지게될 여러 기능들 중 일부를 구체화하여
-    별도의 클래스로 만들고 상속시키겠다.
-
-
-    i) vector 기본
-
-        게임 프로그래밍에서 벡터의 개념은 필수이다
-        여기서는 간단히 해당 예시에서 필요한 정도만 일단 만들어보겠다
-
-        SVector2D
-
+    // step10
 
         이 예시에서 만들 연산은 다음과 같다
 
@@ -46,6 +36,20 @@ class CAPIEngine : public CAPI_Engine
 public:
     CUnit* mpUnit = nullptr;
     CTexture* mpTexture = nullptr;
+
+    // API ref
+    /*
+        Template : 일반화 프로그래밍 기법을 C++에 문법으로 만들어 놓은것 <-- 타입을 매개변수로 다루는 기법
+
+        Standard Template Library
+        STL의 3가지 구성요소
+
+        i) 컨테이너 : 자료구조를 일반화시켜 만들어놓은것
+        ii) 반복자 : 컨테이너와 알보리즘과 같이 사용할 수 있게 만들어진 일반화된 모니터
+        iii) 알고리즘 : 알고리즘을 일반화시켜 만들어 놓은것
+
+    */
+    list<CObjectAPI*> mObjectApi;
 
 public:
 
@@ -91,22 +95,36 @@ public:
         tpA = tpObject;
         tpA->AddRef();
 
+        // API ref
+        mObjectApi.push_back(tpObject);
+        tpObject->AddRef();
+
+
         if (nullptr != tpA)
         {
             tpA->Release();
-            tpA = nullptr;
+            tpA = nullptr; 
         }
 
         if (nullptr != tpObject)
         {
             tpObject->Release();
-            tpA = nullptr;
+            tpObject = nullptr;
         }
         
     }
 
     virtual void OnDestroy() override
     {
+        for (list<CObjectAPI*>::iterator tItor = mObjectApi.begin(); tItor != mObjectApi.end(); ++tItor)
+        {
+            if (nullptr != (*tItor))
+            {
+                (*tItor)->Release();
+                (*tItor) = nullptr;
+            }
+        }
+
         // todo
         if (nullptr != mpUnit)
         {
@@ -184,3 +202,5 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     return (int)msg.wParam;
 }
+
+// CObgectTywcmailcom

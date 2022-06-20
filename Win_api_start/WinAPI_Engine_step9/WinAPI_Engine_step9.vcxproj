@@ -147,6 +147,7 @@
     <ClCompile Include="CTexture.cpp" />
     <ClCompile Include="CUnit.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="SVector2D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CAPI_Engine.h" />
@@ -156,6 +157,7 @@
     <ClInclude Include="framework.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="SVector2D.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>

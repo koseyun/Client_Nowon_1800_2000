@@ -1,6 +1,7 @@
 #include "CObjectAPI.h"
 
-CObjectAPI::CObjectAPI()
+CObjectAPI::CObjectAPI():
+	mPosition(), mRef(0)
 {
 
 }
