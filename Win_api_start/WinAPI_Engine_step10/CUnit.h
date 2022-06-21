@@ -1,13 +1,14 @@
  #pragma once
+#include "CObjectAPI.h"
 
 class CAPI_Engine;
 class CTexture;
 
-class CUnit
+class CUnit: public CObjectAPI
 {
 public:
 	CUnit();
-	~CUnit();
+	virtual ~CUnit();
 
 	// 복사생성자
 	CUnit(const CUnit& tUnit)

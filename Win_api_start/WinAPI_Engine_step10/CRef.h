@@ -8,7 +8,7 @@ public:
 	CRef() : mRef(0) {
 
 	};
-	~CRef() {
+	virtual ~CRef() {
 
 	};
 
