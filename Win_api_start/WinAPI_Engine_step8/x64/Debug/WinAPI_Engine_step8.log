@@ -1,2 +1,14 @@
-﻿  main.cpp
+﻿  CAPI_Engine.cpp
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\WinAPI_Engine_step8\CAPI_Engine.cpp(277,81): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\WinAPI_Engine_step8\CAPI_Engine.cpp(277,67): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\WinAPI_Engine_step8\CAPI_Engine.cpp(277,53): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\WinAPI_Engine_step8\CAPI_Engine.cpp(277,39): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\WinAPI_Engine_step8\CAPI_Engine.cpp(284,13): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\WinAPI_Engine_step8\CAPI_Engine.cpp(284,9): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  CTexture.cpp
+  CUnit.cpp
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\WinAPI_Engine_step8\CUnit.cpp(24,33): warning C4244: '=': 'LONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\WinAPI_Engine_step8\CUnit.cpp(25,34): warning C4244: '=': 'LONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  main.cpp
+  코드를 생성하고 있습니다...
   WinAPI_Engine_step8.vcxproj -> C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\x64\Debug\WinAPI_Engine_step8.exe
