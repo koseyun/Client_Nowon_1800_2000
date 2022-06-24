@@ -1,0 +1,9 @@
+﻿  main.cpp
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\WinAPI_Engine_step17\CInputMgr.h(156,1): warning C4311: '형식 캐스트': 'const char *'에서 'DWORD'(으)로 포인터가 잘립니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\WinAPI_Engine_step17\main.cpp(88): message : 컴파일되는 함수 템플릿 인스턴스화 'bool CInputMgr::AddKey<char[11],char>(const T (&),const char &)'에 대한 참조를 확인하세요.
+          with
+          [
+              T=char [11]
+          ]
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\WinAPI_Engine_step17\CInputMgr.h(156,1): warning C4302: '형식 캐스트': 'const char *'에서 'DWORD'(으)로 잘립니다.
+  WinAPI_Engine_step17.vcxproj -> C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\x64\Debug\WinAPI_Engine_step17.exe
