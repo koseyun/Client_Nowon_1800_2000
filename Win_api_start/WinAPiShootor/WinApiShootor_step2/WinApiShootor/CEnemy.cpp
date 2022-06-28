@@ -1,0 +1,47 @@
+
+#include "CEnemy.h"
+#include "CBullet.h"
+#include <windows.h>
+
+CEnemy::CEnemy()
+{
+
+}
+
+CEnemy::~CEnemy()
+{
+
+}
+
+CEnemy::CEnemy(const CEnemy& t)
+{
+	*this = t;
+}
+
+void CEnemy::DoFire(vector<CBullet*>& tBullets)
+{
+	// 탄환 발사 알고리즘
+	/*
+		탄환의 발사 시작지점을 정한다
+		탄환의 발사 속도를 지정한다
+		탄환을 활성화한다
+	*/
+
+	tBullets[mCurIndexBullet]->SetPosition(this->GetPosition());
+	tBullets[mCurIndexBullet]->SetVelocity(SVector2D(0.0f, +1.0f) * 200.0f);
+	tBullets[mCurIndexBullet]->SetIsActive(true);
+
+	wchar_t tszTemp[64] = { 0 };
+	wsprintf(tszTemp, L"CEnemy::DoFire %d\n", mCurIndexBullet);
+	OutputDebugString(tszTemp);
+
+	// 탄환의 연사
+	if (mCurIndexBullet < tBullets.size() - 1)
+	{
+		mCurIndexBullet++;
+	}
+	else
+	{
+		mCurIndexBullet = 0;
+	}
+}
