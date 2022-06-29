@@ -18,7 +18,41 @@ using namespace std;
 #pragma comment(lib, "WinApiEngine.lib")
 
 /*
-    // winAPIShootor step
+    // winAPIShootor step2
+
+    이번 예시에서는 다음의 사항들을 만들어보자.
+
+    i) 적 기체 생성
+
+        CEnemy 클래스를 추가하자
+            CActor랑 유사할 것으로 추정한다. 참고해서 만들자.
+
+        //ryu_0
+
+    2. 적 기체 일반탄환 발사
+        CActor랑 유사할 것으로 추정한다. 참고해서 만들자. 
+
+        일단 한발 발사하게 만든 후 작동이 확인되면 연사를 할 것이다
+        단 플레이어의 입력에 기반한 것이 아니므로 스스로 '일정 시간 간격'으로 발사한다는 개념이 필요하다
+
+        이것은 바로 타이머 개념이다
+        타이머 개념을 일단 win api에서 제공하는 것을 테스트해보자
+
+            SetTimer, KillTimer
+            WM_TIMER
+
+        하지만 이것은 일반적인 윈도우응용프로그램 을 위한 것이다
+        정확도가 매우 떨어진다고 한다(10ms이하의 간격은 불가능하다)
+
+        게임 응용프로그램은 그보다는 정확도가 정밀해야 한다
+        그러므로 따로 개념을 만들어보자
+
+        //ryu_1
+    3. 적 기체 좌우 이동
+        지형 정보에 기반하여 적 기체의 AI를 작성한다
+        물론 여기서 별도의 지형은 없지만 클라이언트 영역의 좌우 경계를 지형으로 가정하였다
+
+        //ryu_2
 
 */
 
@@ -92,7 +126,7 @@ public:
         mpTexEnemy = new CTexture();
         mpTexEnemy->LoadTexture(this->hInst, this->mhDC, TEXT("resources/bongenemy.bmp"));
         // 원본객체 : CEnemy 타입의 프리팹 생성
-        PFEnemy = CreatePrefab<CActor>(mpTexEnemy, 0.5f, 0.5f, SVector2D(400.0f, 100.0f));
+        PFEnemy = CreatePrefab<CEnemy>(mpTexEnemy, 0.5f, 0.5f, SVector2D(400.0f, 100.0f));
 
 
         // 주인공 게임 객체 하나를 복제로 생성
@@ -119,6 +153,8 @@ public:
 
         mpEnemy = InstantObject<CEnemy>(PFEnemy);
         mpEnemy->AddRef();
+
+        mpEnemy->SetVelocity(SVector2D(+1.0f, 0.0f) * 100.0f);
         
         CBullet* tpBulletEnemy = nullptr;
         for (int ti = 0; ti < 10; ++ti)

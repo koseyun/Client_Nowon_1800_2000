@@ -45,3 +45,19 @@ void CEnemy::DoFire(vector<CBullet*>& tBullets)
 		mCurIndexBullet = 0;
 	}
 }
+
+void CEnemy::Update(float tDeltaTime)
+{
+	CUnit::Update(tDeltaTime);
+
+	// 왼쪽 경계
+	if (this->mPosition.mX - this->mWidth * 0.5f < 0.0f)
+	{
+		this->SetVelocity(SVector2D(+1.0f, 0.0f) * 100.0f);
+	}
+	// 오른쪽 경계
+	if (this->mPosition.mX + this->mWidth * 0.5f > 800.0f)
+	{
+		this->SetVelocity(SVector2D(-1.0f, 0.0f) * 100.0f);
+	}
+}

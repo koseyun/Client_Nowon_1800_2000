@@ -21,6 +21,7 @@ public:
 	}
 
 public:
+	virtual void Update(float tDeltaTime) override;
 	void DoFire(vector<CBullet*>& tBullets);
 
 public:
