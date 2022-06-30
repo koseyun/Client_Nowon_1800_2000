@@ -63,7 +63,14 @@ void CEnemy::DoFireAimed(vector<CBullet*>& tBullets, CObjectAPI* tpObject)
 
 	SVector2D tVector = tTargetP - tStartP;
 
-	tBullets[mCurIndexBullet]->SetVelocity(SVector2D(0.0f, +1.0f) * 200.0f);
+	// 순수한 방향 벡터를 구한다(크기가 1인 단위벡터)
+	SVector2D tUnitVector = tVector.Normalize(); // 정규화
+
+	float tScalarSpeed = 200.0f; // 속력을 정함
+	SVector2D tVelocity = tUnitVector * tScalarSpeed; // 속도를 구함, 벡터의 스칼라곱
+
+	tBullets[mCurIndexBullet]->SetVelocity(tVelocity);
+	//tBullets[mCurIndexBullet]->SetVelocity(SVector2D(0.0f, +1.0f) * 200.0f);
 
 	tBullets[mCurIndexBullet]->SetIsActive(true);
 

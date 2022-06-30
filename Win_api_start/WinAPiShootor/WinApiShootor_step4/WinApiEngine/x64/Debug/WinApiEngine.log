@@ -1,0 +1,21 @@
+﻿  CAPI_Engine.cpp
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\WinAPiShootor\WinApiShootor_step4\WinApiEngine\SVector2D.h(146,14): warning C4244: 'return': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\WinAPiShootor\WinApiShootor_step4\WinApiEngine\CAPI_Engine.cpp(248,81): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\WinAPiShootor\WinApiShootor_step4\WinApiEngine\CAPI_Engine.cpp(248,67): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\WinAPiShootor\WinApiShootor_step4\WinApiEngine\CAPI_Engine.cpp(248,53): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\WinAPiShootor\WinApiShootor_step4\WinApiEngine\CAPI_Engine.cpp(248,39): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\WinAPiShootor\WinApiShootor_step4\WinApiEngine\CAPI_Engine.cpp(255,13): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\WinAPiShootor\WinApiShootor_step4\WinApiEngine\CAPI_Engine.cpp(255,9): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  CInputMgr.cpp
+  CObjectAPI.cpp
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\WinAPiShootor\WinApiShootor_step4\WinApiEngine\SVector2D.h(146,14): warning C4244: 'return': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  CRef.cpp
+  CTexture.cpp
+  CUnit.cpp
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\WinAPiShootor\WinApiShootor_step4\WinApiEngine\SVector2D.h(146,14): warning C4244: 'return': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\WinAPiShootor\WinApiShootor_step4\WinApiEngine\CUnit.cpp(55,33): warning C4244: '=': 'LONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\WinAPiShootor\WinApiShootor_step4\WinApiEngine\CUnit.cpp(56,34): warning C4244: '=': 'LONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  SVector2D.cpp
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\WinAPiShootor\WinApiShootor_step4\WinApiEngine\SVector2D.h(146,14): warning C4244: 'return': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  코드를 생성하고 있습니다...
+  WinApiEngine.vcxproj -> C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\WinAPiShootor\WinApiShootor_step4\bin\WinApiEngine.lib
