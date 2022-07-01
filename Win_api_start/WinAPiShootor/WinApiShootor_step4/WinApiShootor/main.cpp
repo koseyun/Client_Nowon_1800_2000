@@ -354,7 +354,7 @@ public:
         if (mpEnemyCircled->mTimeTick >= 2.0f)
         {
             // todo
-            //mpEnemyCircled->DoFireAimed(mBulletEnemys, mpActor);
+            mpEnemyCircled->DoFireCircled(mBulletC);
 
             float tDiff = mpEnemyCircled->mTimeTick - 2.0f;
             mpEnemyCircled->mTimeTick = tDiff;
