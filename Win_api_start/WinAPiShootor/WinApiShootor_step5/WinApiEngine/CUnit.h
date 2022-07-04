@@ -185,6 +185,7 @@ public:
 	CTexture* mpTexture = nullptr;
 	CAPI_Engine* mpEngine = nullptr;
 
+
 	// 활성 여부
 	bool mIsActive;
 
