@@ -168,6 +168,8 @@ public:
             // 탄환은 생성시 비활성으로
             tpBulletEnemy->SetIsActive(false);
 
+                // test
+                //CCollisionMgr::GetInst()->AddUnit(tpBulletEnemy);
 
             mBulletEnemys.push_back(tpBulletEnemy);
             tpBulletEnemy->AddRef();

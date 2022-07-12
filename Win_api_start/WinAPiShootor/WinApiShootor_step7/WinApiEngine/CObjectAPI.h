@@ -2,6 +2,8 @@
 #include "SVector2D.h"
 #include "CRef.h"
 
+class CCollider;
+
 class CObjectAPI: public CRef
 {
 public:
@@ -20,6 +22,9 @@ public:
 		return mPosition;
 	}
 
+	virtual void OnEnterCollision(CCollider* tOther) = 0;
+	virtual void OnStayCollision(CCollider* tOther) = 0;
+	virtual void OnExitCollision(CCollider* tOther) = 0;
 
 protected:
 	// 위치 정보

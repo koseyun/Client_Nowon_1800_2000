@@ -184,6 +184,10 @@ public:
 public:
 	virtual CObjectAPI* clone() = 0;
 
+	virtual void OnEnterCollision(CCollider* tOther) override {};
+	virtual void OnStayCollision(CCollider* tOther) override {};
+	virtual void OnExitCollision(CCollider* tOther) override {};
+
 public:
 	// ¹ÝÁö¸§
 	float mRadius = 0.0f;
