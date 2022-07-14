@@ -1,0 +1,16 @@
+﻿  CAnimator.cpp
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\WinAPiShootor\WinApiShootor_step10\WinApiEngine\CAnimator.h(43,22): error C2061: 구문 오류: 식별자 'CObjectAPI'
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\WinAPiShootor\WinApiShootor_step10\WinApiEngine\CAnimator.h(47,12): error C2143: 구문 오류: ';'이(가) '*' 앞에 없습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\WinAPiShootor\WinApiShootor_step10\WinApiEngine\CAnimator.h(47,12): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\WinAPiShootor\WinApiShootor_step10\WinApiEngine\CAnimator.h(48,2): error C2334: '{' 앞에 예기치 않은 토큰이 있습니다. 명백한 함수 본문을 건너뜁니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\WinAPiShootor\WinApiShootor_step10\WinApiEngine\CAnimator.h(64,12): error C2143: 구문 오류: ';'이(가) '*' 앞에 없습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\WinAPiShootor\WinApiShootor_step10\WinApiEngine\CAnimator.h(64,12): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\WinAPiShootor\WinApiShootor_step10\WinApiEngine\CAnimator.h(64,32): error C2238: ';' 앞에 예기치 않은 토큰이 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\WinAPiShootor\WinApiShootor_step10\WinApiEngine\CAnimator.h(45,3): error C2065: 'mpObject': 선언되지 않은 식별자입니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\WinAPiShootor\WinApiShootor_step10\WinApiEngine\CAnimator.h(45,14): error C2065: 'tpObject': 선언되지 않은 식별자입니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\WinAPiShootor\WinApiShootor_step10\WinApiEngine\CAnimator.cpp(20,2): error C2065: 'mpObject': 선언되지 않은 식별자입니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\WinAPiShootor\WinApiShootor_step10\WinApiEngine\CAnimator.cpp(20,15): error C2039: 'mpObject': 'CAnimator'의 멤버가 아닙니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\WinAPiShootor\WinApiShootor_step10\WinApiEngine\CUnit.h(8): message : 'CAnimator' 선언을 참조하십시오.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\WinAPiShootor\WinApiShootor_step10\WinApiEngine\CAnimator.cpp(60,2): error C2065: 'mpObject': 선언되지 않은 식별자입니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\WinAPiShootor\WinApiShootor_step10\WinApiEngine\CAnimator.cpp(60,15): error C2039: 'mpObject': 'CAnimator'의 멤버가 아닙니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Win_api_start\WinAPiShootor\WinApiShootor_step10\WinApiEngine\CUnit.h(8): message : 'CAnimator' 선언을 참조하십시오.
