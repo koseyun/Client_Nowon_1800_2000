@@ -48,6 +48,17 @@ public:
 		mpCollider->SetOwnerObject(this);
 
 		mTag = t.mTag;
+
+
+		if (t.mpAnimator)
+		{
+			mpAnimator = new CAnimator();
+			*mpAnimator = *t.mpAnimator;
+
+			mpAnimator->SetOwnerObject(this);
+
+		}
+
 	}
 
 	// 복사대입연산자
@@ -84,6 +95,16 @@ public:
 		mpCollider->SetOwnerObject(this);
 
 		mTag = t.mTag;
+
+
+		if (t.mpAnimator)
+		{
+			mpAnimator = new CAnimator();
+			*mpAnimator = *t.mpAnimator;
+
+			mpAnimator->SetOwnerObject(this);
+
+		}
 	}
 
 public:

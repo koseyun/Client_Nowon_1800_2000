@@ -111,7 +111,7 @@ void CAnimator::Render(CAPI_Engine* tpEngine, float tX, float tY)
 		// 이전에 하던 애니메이션을 플레이한다
 		if (mpCurAniSeq->mCurFrameIndex == mpCurAniSeq->mTotalFramesCount - 1)
 		{
-
+			mStrKeyCurAniSeq = mStrKeyPrevAniSeq;
 
 			mpCurAniSeq->mCurFrameIndex = 0;
 			mpCurAniSeq->mAniTime = 0.0f;
