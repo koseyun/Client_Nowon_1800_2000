@@ -17,9 +17,6 @@
 #include <stack>
 using namespace std;
 
-// test
-#include "CPathMgr.h"
-
 #pragma comment(lib, "WinApiEngine.lib")
 
 #define MAX_ROW 5
@@ -89,7 +86,8 @@ public:
         CAPI_Engine::OnCreate();
 
         // test
-        CPathMgr::GetInstance()->Create();
+        //CPathMgr::GetInstance()->Create();
+        CPathMgr::GetInstance()->MakePath(RESOURCES_PATH, L"resources", ROOT_PATH);
 
         // 난수의 씨앗을 뿌림
         srand(time(nullptr));

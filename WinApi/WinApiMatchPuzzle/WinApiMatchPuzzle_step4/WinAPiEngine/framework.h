@@ -20,3 +20,4 @@
 #include "CCollisionMgr.h"
 #include "CAnimator.h"
 #include "CAniSeq.h"
+#include "CPathMgr.h"

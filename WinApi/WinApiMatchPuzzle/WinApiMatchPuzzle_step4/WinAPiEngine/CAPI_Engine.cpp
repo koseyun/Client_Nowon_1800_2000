@@ -4,6 +4,7 @@
 #include "CInputMgr.h"
 #include "CObjectAPI.h"
 #include "CCollisionMgr.h"
+#include "CPathMgr.h"
 
 HINSTANCE CAPI_Engine::hInst = nullptr;
 
@@ -174,6 +175,7 @@ MSG CAPI_Engine::Run()
     mpBackBuffer->CreateBackBuffer(hInst, mhDC);
     //mpBackBuffer->LoadTexture(hInst, mhDC, TEXT("resources/backbuffer_0.bmp"));
 
+    CPathMgr::GetInstance()->Create();
     CInputMgr::GetInstance();
     CCollisionMgr::GetInstance();
 
@@ -205,8 +207,8 @@ MSG CAPI_Engine::Run()
 
     OnDestroy();
 
+    CPathMgr::ReleaseInstance();
     CCollisionMgr::ReleaseInstance();
-
     CInputMgr::ReleaseInstance();
 
     if (nullptr != mpBackBuffer)
