@@ -146,12 +146,23 @@
 
 	radian(라디안)
 	------------------------
-	WinApiShootor step5
+	WinApiMatchPuzzle step7
 
+	OOP(Object Oriented Programming) : 클래스간 관계, 객체 간 관계를 가지고 프로그램 구조를 만드는 방법론
 
+	추상화 abstraction
+		코드의 추상화 + 데이터의 추상화 --> 데이터의 추상화
 
+	은닉화 encapsulation
+		멤버변수를 멤버함수 뒤로 감춘다
 
+	======= 추상화와 은닉화를 결합하여 최소한의 객체의 요건을 갖춘다
 
+	상속성 inheritance
+		공통된 특성(변수, 함수)를 부모클래스에 두고 자식클래스는 이를 이어받아 작성하는 것
+
+	다형성 polymorphism
+		같은 메시지에 다른 반응, override + virtual + 부모클래스 포인터 타입
 
 	--------------------------------------------------------
 
