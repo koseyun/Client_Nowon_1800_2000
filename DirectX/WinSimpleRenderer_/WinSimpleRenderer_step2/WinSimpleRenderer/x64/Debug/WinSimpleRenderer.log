@@ -1,0 +1,9 @@
+﻿  main.cpp
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\DirectX\WinSimpleRenderer_\WinSimpleRenderer_step2\WinAPIEngine\SVector2D.h(95,20): warning C4244: 'return': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\DirectX\WinSimpleRenderer_\WinSimpleRenderer_step2\WinSimpleRenderer\main.cpp(248,33): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\DirectX\WinSimpleRenderer_\WinSimpleRenderer_step2\WinSimpleRenderer\main.cpp(248,23): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\DirectX\WinSimpleRenderer_\WinSimpleRenderer_step2\WinSimpleRenderer\main.cpp(247,33): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\DirectX\WinSimpleRenderer_\WinSimpleRenderer_step2\WinSimpleRenderer\main.cpp(247,23): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\DirectX\WinSimpleRenderer_\WinSimpleRenderer_step2\WinSimpleRenderer\main.cpp(246,42): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\DirectX\WinSimpleRenderer_\WinSimpleRenderer_step2\WinSimpleRenderer\main.cpp(246,32): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  WinSimpleRenderer.vcxproj -> C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\DirectX\WinSimpleRenderer_\WinSimpleRenderer_step2\bin\WinSimpleRenderer.exe
