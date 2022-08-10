@@ -1,0 +1,52 @@
+#pragma once
+#include "SVector2D.h"
+#include "CRef.h"
+#include <string>
+using namespace std;
+
+class CAPI_Engine;
+class CCollider;
+
+class CObjectAPI: public CRef
+{
+public:
+	CObjectAPI();
+	virtual ~CObjectAPI();
+
+protected:
+	SVector2D mPosition;
+
+	CAPI_Engine* mpEngine = nullptr;
+
+	string mTag = "";
+
+public:
+	inline SVector2D GetPosition() const
+	{
+		return mPosition;
+	}
+
+	inline void SetPosition(SVector2D tPosition)
+	{
+		mPosition = tPosition;
+	}	
+
+	void SetEngine(CAPI_Engine* tpEngine);
+
+	string GetTag() const
+	{
+		return mTag;
+	}
+	void SetTag(string tTag)
+	{
+		mTag = tTag;
+	}
+
+public:
+	virtual CObjectAPI* clone() = 0;
+		
+	virtual void OnEnterCollision(CCollider* tOther) = 0;
+
+	virtual void OnStayCollision(CCollider* tOther) = 0;
+	virtual void OnExitCollision(CCollider* tOther) = 0;
+};

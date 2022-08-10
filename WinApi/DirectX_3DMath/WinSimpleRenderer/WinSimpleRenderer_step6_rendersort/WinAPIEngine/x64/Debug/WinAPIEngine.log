@@ -1,0 +1,53 @@
+﻿  CAnimator.cpp
+  CAniSeq.cpp
+  CAPI_Engine.cpp
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step6_rendersort\WinAPIEngine\SVector2D.h(95,20): warning C4244: 'return': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step6_rendersort\WinAPIEngine\CAPI_Engine.cpp(56,85): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step6_rendersort\WinAPIEngine\CAPI_Engine.cpp(56,71): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step6_rendersort\WinAPIEngine\CAPI_Engine.cpp(56,57): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step6_rendersort\WinAPIEngine\CAPI_Engine.cpp(56,43): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step6_rendersort\WinAPIEngine\CAPI_Engine.cpp(103,13): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step6_rendersort\WinAPIEngine\CAPI_Engine.cpp(103,9): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step6_rendersort\WinAPIEngine\CAPI_Engine.cpp(130,13): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step6_rendersort\WinAPIEngine\CAPI_Engine.cpp(130,9): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step6_rendersort\WinAPIEngine\CAPI_Engine.cpp(336,28): warning C4244: '=': 'float'에서 'COLOR16'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step6_rendersort\WinAPIEngine\CAPI_Engine.cpp(337,30): warning C4244: '=': 'float'에서 'COLOR16'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step6_rendersort\WinAPIEngine\CAPI_Engine.cpp(338,29): warning C4244: '=': 'float'에서 'COLOR16'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step6_rendersort\WinAPIEngine\CAPI_Engine.cpp(343,28): warning C4244: '=': 'float'에서 'COLOR16'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step6_rendersort\WinAPIEngine\CAPI_Engine.cpp(344,30): warning C4244: '=': 'float'에서 'COLOR16'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step6_rendersort\WinAPIEngine\CAPI_Engine.cpp(345,29): warning C4244: '=': 'float'에서 'COLOR16'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step6_rendersort\WinAPIEngine\CAPI_Engine.cpp(350,28): warning C4244: '=': 'float'에서 'COLOR16'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step6_rendersort\WinAPIEngine\CAPI_Engine.cpp(351,30): warning C4244: '=': 'float'에서 'COLOR16'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step6_rendersort\WinAPIEngine\CAPI_Engine.cpp(352,29): warning C4244: '=': 'float'에서 'COLOR16'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step6_rendersort\WinAPIEngine\CAPI_Engine.cpp(377,28): warning C4244: '=': 'float'에서 'COLOR16'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step6_rendersort\WinAPIEngine\CAPI_Engine.cpp(378,30): warning C4244: '=': 'float'에서 'COLOR16'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step6_rendersort\WinAPIEngine\CAPI_Engine.cpp(379,29): warning C4244: '=': 'float'에서 'COLOR16'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step6_rendersort\WinAPIEngine\CAPI_Engine.cpp(384,28): warning C4244: '=': 'float'에서 'COLOR16'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step6_rendersort\WinAPIEngine\CAPI_Engine.cpp(385,30): warning C4244: '=': 'float'에서 'COLOR16'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step6_rendersort\WinAPIEngine\CAPI_Engine.cpp(386,29): warning C4244: '=': 'float'에서 'COLOR16'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step6_rendersort\WinAPIEngine\CAPI_Engine.cpp(391,28): warning C4244: '=': 'float'에서 'COLOR16'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step6_rendersort\WinAPIEngine\CAPI_Engine.cpp(392,30): warning C4244: '=': 'float'에서 'COLOR16'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step6_rendersort\WinAPIEngine\CAPI_Engine.cpp(393,29): warning C4244: '=': 'float'에서 'COLOR16'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  CCollider.cpp
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step6_rendersort\WinAPIEngine\SVector2D.h(95,20): warning C4244: 'return': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  CCollisionMgr.cpp
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step6_rendersort\WinAPIEngine\SVector2D.h(95,20): warning C4244: 'return': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  CInputMgr.cpp
+  CObjectAPI.cpp
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step6_rendersort\WinAPIEngine\SVector2D.h(95,20): warning C4244: 'return': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  CPathMgr.cpp
+  CRef.cpp
+  CResourcesMgr.cpp
+  CTexture.cpp
+  CUnit.cpp
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step6_rendersort\WinAPIEngine\SVector2D.h(95,20): warning C4244: 'return': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step6_rendersort\WinAPIEngine\CUnit.cpp(139,36): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step6_rendersort\WinAPIEngine\CUnit.cpp(140,37): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step6_rendersort\WinAPIEngine\CUnit.cpp(149,35): warning C4244: '=': 'LONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step6_rendersort\WinAPIEngine\CUnit.cpp(150,36): warning C4244: '=': 'LONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step6_rendersort\WinAPIEngine\CUnit.cpp(172,39): warning C4244: '=': 'LONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step6_rendersort\WinAPIEngine\CUnit.cpp(173,40): warning C4244: '=': 'LONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  SVector2D.cpp
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step6_rendersort\WinAPIEngine\SVector2D.h(95,20): warning C4244: 'return': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  코드를 생성하고 있습니다...
+  WinAPIEngine.vcxproj -> C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step6_rendersort\bin\WinAPIEngine.lib
