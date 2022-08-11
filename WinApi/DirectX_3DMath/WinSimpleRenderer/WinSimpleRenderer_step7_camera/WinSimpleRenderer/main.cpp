@@ -76,7 +76,7 @@ struct SApiMesh
 
                 tVertives.push_back(tPos); // 가변배열 벡터에 원소(정점데이터) 추가
             }
-            
+
             // 삼각형(면) 데이터 처리
             if ('f' == tLine[0])
             {
@@ -92,8 +92,149 @@ struct SApiMesh
     }
 };
 
+// 벡터의 덧셈
+const SApiVector3 operator+(const SApiVector3& tA, const SApiVector3& tB)
+{
+    SApiVector3 tVector;
+
+    tVector.x = tA.x + tB.x;
+    tVector.y = tA.y + tB.y;
+    tVector.z = tA.z + tB.z;
+
+    return tVector;
+}
+
+// 벡터의 뺄셈
+const SApiVector3 operator-(const SApiVector3& tA, const SApiVector3& tB)
+{
+    SApiVector3 tVector;
+
+    tVector.x = tA.x - tB.x;
+    tVector.y = tA.y - tB.y;
+    tVector.z = tA.z - tB.z;
+
+    return tVector;
+}
+
+// 벡터의 내적, 결과는 스칼라가 나온다
+float DotProduct(const SApiVector3& tA, const SApiVector3& tB)
+{
+    return tA.x * tB.x + tA.y * tB.y + tA.z * tB.z;
+}
+
+// 벡터의 외적, 결과는 벡터가 나온다
+SApiVector3 CrossProuct(const SApiVector3& tA, const SApiVector3& tB)
+{
+    SApiVector3 tVector;
+
+    tVector.x = tA.y * tB.z - tA.z * tB.y;
+    tVector.y = tA.z * tB.x - tA.x * tB.z;
+    tVector.z = tA.x * tB.y - tA.y * tB.x;
+
+    return tVector;
+}
+
+// 정규화 : 벡터의 크기를 1로 만드는 것
+void Normalize(SApiVector3& tA)
+{
+    // 벡터의 크기를 구함       /sqrtf:제곱
+    float tSize = std::sqrtf(DotProduct(tA, tA));
+
+    if (tSize > 0.0f)
+    {
+        tA.x = tA.x * (1.0f / tSize);
+        tA.y = tA.y * (1.0f / tSize);
+        tA.z = tA.z * (1.0f / tSize);
+    }
+}
+
+SApiVector3 operator*(const float& tScalar, SApiVector3& tA)
+{
+    SApiVector3 tVector;
+
+    tVector.x = tScalar * tA.x;
+    tVector.y = tScalar * tA.y;
+    tVector.z = tScalar * tA.z;
+
+    return tVector;
+}
+
+// 4행 4열짜리 행렬 구조체
+// 3차원을 다루려면 4by4 짜리 변환행렬이 필요하다
+struct mat4x4
+{
+    float m[4][4] = { 0.0f };
+};
+
+// tPos : 카메라의 위치
+// tTarget : 카메라가 바라보는 지점
+// tUp : 상방벡터(위쪽 방향)
+mat4x4 MatrixPointAt(SApiVector3& tPos, SApiVector3& tTarget, SApiVector3& tUp)
+{
+    mat4x4 tResult{ 0.0f };
+
+    SApiVector3 tNewForward = tTarget - tPos;
+    Normalize(tNewForward);
+
+    SApiVector3 tProjectionUpOnToNewForward = DotProduct(tUp, tNewForward) * tNewForward;
+    SApiVector3 tNewUp = tUp - tProjectionUpOnToNewForward;
+    Normalize(tNewUp);
+
+    SApiVector3 tNewRight = CrossProuct(tNewUp, tNewForward);
+
+    // newRight :x축, newUp :y축, newForward :z축
+    // 새로운 x,y,z 기저벡터의 성분을 행벡터를 고려한 순서로 배치하였다
+    tResult.m[0][0] = tNewRight.x;
+    tResult.m[1][0] = tNewRight.y;
+    tResult.m[2][0] = tNewRight.z;
+
+    tResult.m[0][1] = tNewUp.x;
+    tResult.m[1][1] = tNewUp.y;
+    tResult.m[2][1] = tNewUp.z;
+
+    tResult.m[0][2] = tNewForward.x;
+    tResult.m[1][2] = tNewForward.y;
+    tResult.m[2][2] = tNewForward.z;
+    // 카메라의 위치 성분을 배치하였다
+    tResult.m[3][0] = tPos.x;
+    tResult.m[3][1] = tPos.y;
+    tResult.m[3][2] = tPos.z;
+
+    tResult.m[3][3] = 1.0f;
+
+    return tResult;
+}
+
+mat4x4 QuickInverse(mat4x4 const& tMat)
+{
+    mat4x4 inv{ 0.0f };
+
+    inv.m[0][0] = tMat.m[0][0];
+    inv.m[1][0] = tMat.m[0][1];
+    inv.m[2][0] = tMat.m[0][2];
+    inv.m[3][0] = -(tMat.m[3][0] * tMat.m[0][0] + tMat.m[3][1] * tMat.m[1][0] + tMat.m[3][2] * tMat.m[2][0]);
+
+    inv.m[0][1] = tMat.m[0][1];
+    inv.m[1][1] = tMat.m[1][1];
+    inv.m[2][1] = tMat.m[1][2];
+    inv.m[3][1] = -(tMat.m[3][0] * tMat.m[0][1] + tMat.m[3][1] * tMat.m[1][1] + tMat.m[3][2] * tMat.m[2][1]);
+
+    inv.m[0][2] = tMat.m[2][0];
+    inv.m[1][2] = tMat.m[2][1];
+    inv.m[2][2] = tMat.m[2][2];
+    inv.m[3][2] = -(tMat.m[3][0] * tMat.m[0][2] + tMat.m[3][1] * tMat.m[1][2] + tMat.m[3][2] * tMat.m[2][2]);
+
+    inv.m[3][3] = 1.0f;    
+
+    return inv;
+}
+
 class CAPIEngine: public CAPI_Engine
 {
+private:
+    SApiVector3 mPosMainCamera = { 0.0f, 0.0f, 0.0f }; // 카메라의 위치
+    SApiVector3 mDirLook = { 0.0f, 0.0f, 1.0f }; // z축 전방 방향
+
 public:
     CAPIEngine() {};
     virtual ~CAPIEngine() {};
@@ -286,7 +427,27 @@ public:
             MultiplyMatrixVectorApi(tMeshRotate.tris[ti].p[1], tMeshTranslate.tris[ti].p[1], tMatTranslate);
             MultiplyMatrixVectorApi(tMeshRotate.tris[ti].p[2], tMeshTranslate.tris[ti].p[2], tMatTranslate);
         }
-        //-------월드변환 완료(W = TRS)
+        //----------------------------------------------------월드변환 완료(W = TRS)
+
+        // 뷰변환 행렬을 적용하자
+
+        // 뷰변환 행렬을 구한다
+        SApiVector3 tDirUp = { 0.0f, 1.0f, 0.0f };
+        SApiVector3 tPosTarget = mPosMainCamera + mDirLook;
+
+        mat4x4 tMatViewInverse = MatrixPointAt(mPosMainCamera, tPosTarget, tDirUp);
+        mat4x4 tMatView = QuickInverse(tMatViewInverse);
+
+        SApiMesh tMeshView;
+        tMeshView.tris = tMeshTranslate.tris;
+
+        // 벡터와 뷰변환 행렬을 곱하자
+        for (int ti = 0; ti < tMeshTranslate.tris.size(); ++ti)
+        {
+            MultiplyMatrixVectorApi(tMeshTranslate.tris[ti].p[0], tMeshView.tris[ti].p[0], tMatView.m);
+            MultiplyMatrixVectorApi(tMeshTranslate.tris[ti].p[1], tMeshView.tris[ti].p[1], tMatView.m);
+            MultiplyMatrixVectorApi(tMeshTranslate.tris[ti].p[2], tMeshView.tris[ti].p[2], tMatView.m);
+        }
 
         //정직하게
         /*float tNear = 0.7f;//0.1f;
@@ -339,7 +500,7 @@ public:
 
         //투영 변환 적용
         SApiMesh tMeshProj;
-        tMeshProj.tris = tMeshTranslate.tris; // 삼각형들 복사
+        tMeshProj.tris = tMeshView.tris; // 삼각형들 복사
         /*{
             {0.0f, 0.0f, 0.0f,      0.0f, 0.0f, 0.0f,       0.0f, 0.0f, 0.0f},
             {0.0f, 0.0f, 0.0f,      0.0f, 0.0f, 0.0f,       0.0f, 0.0f, 0.0f},
@@ -364,7 +525,7 @@ public:
         std::vector<SApiTriangle> tRasterTriangles;
 
         int ti = 0;
-        for (auto t : tMeshTranslate.tris)
+        for (auto t : tMeshView.tris)
         {
             SApiVector3 tNomal; // 삼각형 면의 법선 벡터(면에 수직인 단위벡터)
             SApiVector3 tLine_A; // A벡터
@@ -398,7 +559,7 @@ public:
             tPosMid.y = t.p[0].y + t.p[1].y + t.p[2].y;
             tPosMid.z = t.p[0].z + t.p[1].z + t.p[2].z;
 
-            SApiVector3 mPosMainCamera = { 0.0f, 0.0f, 0.0f }; // 카메라의 위치
+            //SApiVector3 mPosMainCamera = { 0.0f, 0.0f, 0.0f }; // 카메라의 위치
             SApiVector3 tVecView; // 시선벡터
             tVecView.x = tPosMid.x - mPosMainCamera.x;
             tVecView.y = tPosMid.y - mPosMainCamera.y;
