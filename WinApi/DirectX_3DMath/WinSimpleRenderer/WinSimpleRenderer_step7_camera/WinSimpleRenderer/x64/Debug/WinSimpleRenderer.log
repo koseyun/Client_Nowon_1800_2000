@@ -1,18 +1,25 @@
 ﻿  main.cpp
 C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step7_camera\WinAPIEngine\SVector2D.h(95,20): warning C4244: 'return': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step7_camera\WinSimpleRenderer\main.cpp(671,42): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step7_camera\WinSimpleRenderer\main.cpp(671,32): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step7_camera\WinSimpleRenderer\main.cpp(670,42): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step7_camera\WinSimpleRenderer\main.cpp(670,32): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step7_camera\WinSimpleRenderer\main.cpp(669,42): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step7_camera\WinSimpleRenderer\main.cpp(669,32): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step7_camera\WinSimpleRenderer\main.cpp(676,42): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step7_camera\WinSimpleRenderer\main.cpp(676,32): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step7_camera\WinSimpleRenderer\main.cpp(675,42): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step7_camera\WinSimpleRenderer\main.cpp(675,32): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step7_camera\WinSimpleRenderer\main.cpp(674,42): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step7_camera\WinSimpleRenderer\main.cpp(674,32): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step7_camera\WinSimpleRenderer\main.cpp(706,38): warning C4244: '=': 'float'에서 'uint8_t'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step7_camera\WinSimpleRenderer\main.cpp(707,38): warning C4244: '=': 'float'에서 'uint8_t'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step7_camera\WinSimpleRenderer\main.cpp(708,38): warning C4244: '=': 'float'에서 'uint8_t'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step7_camera\WinSimpleRenderer\main.cpp(722,42): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step7_camera\WinSimpleRenderer\main.cpp(722,32): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step7_camera\WinSimpleRenderer\main.cpp(721,42): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step7_camera\WinSimpleRenderer\main.cpp(721,32): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step7_camera\WinSimpleRenderer\main.cpp(720,42): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step7_camera\WinSimpleRenderer\main.cpp(720,32): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step7_camera\WinSimpleRenderer\main.cpp(727,42): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step7_camera\WinSimpleRenderer\main.cpp(727,32): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step7_camera\WinSimpleRenderer\main.cpp(726,42): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step7_camera\WinSimpleRenderer\main.cpp(726,32): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step7_camera\WinSimpleRenderer\main.cpp(725,42): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step7_camera\WinSimpleRenderer\main.cpp(725,32): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step7_camera\WinSimpleRenderer\main.cpp(757,38): warning C4244: '=': 'float'에서 'uint8_t'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step7_camera\WinSimpleRenderer\main.cpp(758,38): warning C4244: '=': 'float'에서 'uint8_t'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step7_camera\WinSimpleRenderer\main.cpp(759,38): warning C4244: '=': 'float'에서 'uint8_t'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step7_camera\WinAPIEngine\CInputMgr.h(89,1): warning C4311: '형식 캐스트': 'const char *'에서 'DWORD'(으)로 포인터가 잘립니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step7_camera\WinSimpleRenderer\main.cpp(248): message : 컴파일되는 함수 템플릿 인스턴스화 'bool CInputMgr::AddKey<char[14],char>(const T (&),const char &)'에 대한 참조를 확인하세요.
+          with
+          [
+              T=char [14]
+          ]
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step7_camera\WinAPIEngine\CInputMgr.h(89,1): warning C4302: '형식 캐스트': 'const char *'에서 'DWORD'(으)로 잘립니다.
   WinSimpleRenderer.vcxproj -> C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\WinApi\DirectX_3DMath\WinSimpleRenderer\WinSimpleRenderer_step7_camera\bin\WinSimpleRenderer.exe

@@ -18,5 +18,11 @@
     <ClCompile Include="SimpleRenderer_note.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="cube_888.obj.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="slime.obj.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

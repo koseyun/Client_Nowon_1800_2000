@@ -235,6 +235,8 @@ private:
     SApiVector3 mPosMainCamera = { 0.0f, 0.0f, 0.0f }; // 카메라의 위치
     SApiVector3 mDirLook = { 0.0f, 0.0f, 1.0f }; // z축 전방 방향
 
+    SApiMesh tMesh;
+
 public:
     CAPIEngine() {};
     virtual ~CAPIEngine() {};
@@ -242,6 +244,18 @@ public:
     virtual void OnCreate() override
     {
         CAPI_Engine::OnCreate();
+
+        CInputMgr::GetInstance()->AddKey("OnMoveForward", 'W');
+        CInputMgr::GetInstance()->AddKey("OnMoveBackward", 'S');
+
+        CInputMgr::GetInstance()->AddKey("OnMoveRtSide", 'D');
+        CInputMgr::GetInstance()->AddKey("OnMoveLtSide", 'A');
+
+        CInputMgr::GetInstance()->AddKey("OnMoveDown", 'E');
+        CInputMgr::GetInstance()->AddKey("OnMoveUp", 'Q');
+
+        //tMesh.LoadFromObjectFile("resources/cube_888.obj");
+        tMesh.LoadFromObjectFile("resources/slime.obj");
     }
     virtual void OnDestroy() override
     {
@@ -250,6 +264,45 @@ public:
     virtual void OnUpdate(float tDeltaTime) override
     {
         CAPI_Engine::OnUpdate(tDeltaTime);
+
+        // 키입력에 의한 카메라 조작
+        CInputMgr::GetInstance()->Update();
+
+        if (CInputMgr::GetInstance()->KeyPress("OnMoveDown"))
+        {
+            mPosMainCamera.y = mPosMainCamera.y - 50.0f * tDeltaTime;
+        }
+
+        if (CInputMgr::GetInstance()->KeyPress("OnMoveUp"))
+        {
+            mPosMainCamera.y = mPosMainCamera.y + 50.0f * tDeltaTime;
+        }
+
+        if (CInputMgr::GetInstance()->KeyPress("OnMoveLtSide"))
+        {
+            mPosMainCamera.x = mPosMainCamera.x - 50.0f * tDeltaTime;
+        }
+
+        if (CInputMgr::GetInstance()->KeyPress("OnMoveRtSide"))
+        {
+            mPosMainCamera.x = mPosMainCamera.x + 50.0f * tDeltaTime;
+        }
+
+        // 바라보는 방향을 기반으로 전방벡터를 만듦
+        SApiVector3 tForward = (50.0f * tDeltaTime) * mDirLook;
+
+        if (CInputMgr::GetInstance()->KeyPress("OnMoveForward"))
+        {
+            // 현재위치 = 이전위치 + 전방벡터
+            mPosMainCamera = mPosMainCamera + tForward;
+        }
+
+        if (CInputMgr::GetInstance()->KeyPress("OnMoveBackward"))
+        {
+            // 현재위치 = 이전위치 + (-1 * 전방벡터)
+            // 현재위치 = 이전위치 + 후방벡터
+            mPosMainCamera = mPosMainCamera + (-1.0f * tForward);
+        }
 
         // Render
         this->Clear(0.1f, 0.1f, 0.3f);
@@ -283,9 +336,7 @@ public:
             {0.0f, 0.0f, 1.0f,			0.0f, 0.0f, 0.0f,		1.0f, 0.0f, 0.0f},
             {0.0f, 0.0f, 1.0f,			1.0f, 0.0f, 0.0f,		1.0f, 0.0f, 1.0f}
         };*/
-        SApiMesh tMesh;
-        //tMesh.LoadFromObjectFile("resources/cube_888.obj");
-        tMesh.LoadFromObjectFile("resources/slime.obj");
+        
         
         // 스케일 변환 행렬 
         float tScaleScalar = 1.0f;
