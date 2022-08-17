@@ -25,6 +25,7 @@ public:
 	void Clear(float tR = 0.0f, float tG = 0.0f, float tB = 0.0f);
 	void Clear(XMVECTORF32 tColor);
 	void Present();
+	HRESULT CompileShaderFromFile(const WCHAR* szFileName, LPCSTR szEntryPoint, LPCSTR szShaderModel, ID3DBlob** ppBlobOut);
 		
 	float GetDeltaTime() const
 	{
@@ -70,7 +71,8 @@ private:
 
 	float mDeltaTime;
 
-	// Direct3D
+protected:
+	// D3D : Direct3D
 	// 드라이버 : 하드웨어에 밀착된 소프트웨어
 	D3D_DRIVER_TYPE         mDriverType = D3D_DRIVER_TYPE_NULL; // 드라이버 프로그램의 종류
 	D3D_FEATURE_LEVEL       mFeatureLevel = D3D_FEATURE_LEVEL_11_0; // FeatureLevel : 임의의 장치가 지원하는 DirectX의 기능집합 수준

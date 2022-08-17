@@ -5,7 +5,14 @@
       <FullPath>C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\DirectX\DxTutoBegin\DxTutoBegin_step1\x64\Debug\DxTutoBegin.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
-  <ContentFiles />
+  <ContentFiles>
+    <ContentFile>
+      <FullPath>C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\DirectX\DxTutoBegin\DxTutoBegin_step1\x64\Debug\PixelShader.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\DirectX\DxTutoBegin\DxTutoBegin_step1\x64\Debug\VertexShader.cso</FullPath>
+    </ContentFile>
+  </ContentFiles>
   <SatelliteDlls />
   <NonRecipeFileRefs />
 </Project>
