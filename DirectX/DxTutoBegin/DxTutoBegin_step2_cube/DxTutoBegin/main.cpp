@@ -153,22 +153,21 @@ public:
             XMFLOAT3(0.0f, 0.0f, 0.5f), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.0f), // 정점 하나의 정보
             XMFLOAT3(0.0f, 1.0f, 0.5f), XMFLOAT4(0.0f, 1.0f, 0.0f, 1.0f),
             XMFLOAT3(1.0f, 0.0f, 0.5f), XMFLOAT4(0.0f, 0.0f, 1.0f, 1.0f),
-        }; */
+        };*/
 
         // 정육면체를 이루는 정점 데이터 8개
         SimpleVertex vertices[] =
         {
-            { XMFLOAT3(-1.0f, 1.0f, -1.0f),  XMFLOAT4(0.0f, 0.0f, 1.0f, 1.0f) },
-            { XMFLOAT3(1.0f, 1.0f, -1.0f),   XMFLOAT4(0.0f, 0.0f, 1.0f, 1.0f) },
-            { XMFLOAT3(1.0f, 1.0f, 1.0f),    XMFLOAT4(0.0f, 0.0f, 1.0f, 1.0f) },
-            { XMFLOAT3(-1.0f, 1.0f, 1.0f),   XMFLOAT4(0.0f, 0.0f, 1.0f, 1.0f) },
+            { XMFLOAT3(-1.0f, 1.0f, -1.0f),  XMFLOAT4(0.0f, 0.0f, 1.0f, 1.0f) }, // 0
+            { XMFLOAT3(1.0f, 1.0f, -1.0f),   XMFLOAT4(0.0f, 0.0f, 1.0f, 1.0f) }, // 1
+            { XMFLOAT3(1.0f, 1.0f, 1.0f),    XMFLOAT4(0.0f, 0.0f, 1.0f, 1.0f) }, // 2
+            { XMFLOAT3(-1.0f, 1.0f, 1.0f),   XMFLOAT4(0.0f, 0.0f, 1.0f, 1.0f) }, // 3
 
-            { XMFLOAT3(-1.0f, -1.0f, -1.0f), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.0f) },
-            { XMFLOAT3(1.0f, -1.0f, -1.0f),  XMFLOAT4(1.0f, 0.0f, 0.0f, 1.0f) },
-            { XMFLOAT3(1.0f, -1.0f, 1.0f),   XMFLOAT4(1.0f, 0.0f, 0.0f, 1.0f) },
-            { XMFLOAT3(-1.0f, -1.0f, 1.0f),  XMFLOAT4(1.0f, 0.0f, 0.0f, 1.0f) },
+            { XMFLOAT3(-1.0f, -1.0f, -1.0f), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.0f) }, // 4
+            { XMFLOAT3(1.0f, -1.0f, -1.0f),  XMFLOAT4(1.0f, 0.0f, 0.0f, 1.0f) }, // 5
+            { XMFLOAT3(1.0f, -1.0f, 1.0f),   XMFLOAT4(1.0f, 0.0f, 0.0f, 1.0f) }, // 6
+            { XMFLOAT3(-1.0f, -1.0f, 1.0f),  XMFLOAT4(1.0f, 0.0f, 0.0f, 1.0f) }, // 7
         };
-
         // 주설명
         D3D11_BUFFER_DESC bd = {};
         bd.Usage            = D3D11_USAGE_DEFAULT;      // 버퍼는 기본 용도 버퍼로 사용하겠다
@@ -183,16 +182,55 @@ public:
 
         // bd와 InitData를 참고하여 mpVertexBuffer를 생성한다
         // Vertex Buffer는 기하도형을 그리기 위해 필요한 데이터이다
-        mpd3dDevice->CreateBuffer(&bd, &InitData, &mpVertexBuffer);
+        mpd3dDevice->CreateBuffer(&bd, &InitData, &mpVertexBuffer);        
         
         UINT stride = sizeof(SimpleVertex); // 메모리를 해석하는 경계?
         UINT offset = 0;                    // 얼마나 떨어졌는지
 
         mpImmediateContext->IASetVertexBuffers(0, 1, &mpVertexBuffer, &stride, &offset);
+
+        // IndexBuffer 생성        
+        // 시스템 스택 메모리에 인덱스 배열을 만들었다
+        // 인덱스의 나열은 정점의 나열이 CW(Clock Wise) 시계방향으로 이루어지도록 나열하였다
+        WORD indices[] =
+        {
+            3, 1, 0, // <-예시, 위쪽 면
+            2, 1, 3, // <-예시, 위쪽 면
+
+            0, 5, 4,
+            1, 5, 0,
+
+            3, 4, 7,
+            0, 4, 3,
+
+            1, 6, 5,
+            2, 6, 1,
+
+            2, 7, 6,
+            3, 7, 2,
+
+            6, 4, 5,
+            7, 4, 6,
+        };
+        // 주설명
+        //D3D11_BUFFER_DESC bd = {};
+        bd.Usage = D3D11_USAGE_DEFAULT;         // 버퍼는 기본 용도 버퍼로 사용하겠다
+        bd.ByteWidth = sizeof(WORD) * 36;       // 인덱스의 개수는 총 36개. 즉 8개의 정점데이터를 가지고 36개의 정점으로 인지
+        bd.BindFlags = D3D11_BIND_INDEX_BUFFER; // index buffer 용도로 사용하겠다
+        bd.CPUAccessFlags = 0;                  // CPU의 접근은 불허한다
+
+        // 부설명
+        //D3D11_SUBRESOURCE_DATA InitData = {};
+        InitData.pSysMem = indices;                 // 해당 시스템 메모리에 내용을 넘긴다
+
+        mpd3dDevice->CreateBuffer(&bd, &InitData, &mpIndexBuffer);
+        // IA에 인덱스 버퍼 설정
+        mpImmediateContext->IASetIndexBuffer(mpIndexBuffer, DXGI_FORMAT_R16_UINT, 0);
+
         mpImmediateContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
         // 도형을 어떤 방식으로 그릴지 방법을 정하는 것이다
         // 여기서는 정점 3개를 모아서 하나의 삼각형을 구성하는 형태로 랜더링한다
-
+        
         // Constant Buffer 상수버퍼 생성
         // 주설명
         bd.Usage = D3D11_USAGE_DEFAULT;      // 버퍼는 기본 용도 버퍼로 사용하겠다
@@ -228,7 +266,6 @@ public:
         float tAspectRatio = width / (float)height;
         // 시야각, 종횡비, 근평면까지의 거리, 원평면까지의 거리를 기반으로 원근 투영변환 행렬을 만든다
         mMatProjection = XMMatrixPerspectiveFovLH(XM_PIDIV2, tAspectRatio, 0.01f, 100.0f);
-
     }
 
     virtual void OnDestroy() override
@@ -240,6 +277,7 @@ public:
         if (mpVertexLayout) mpVertexLayout->Release();
 
         if (mpVertexBuffer) mpVertexBuffer->Release();
+        if (mpIndexBuffer) mpIndexBuffer->Release();
 
         if (mpCBTransform) mpCBTransform->Release();
 
@@ -284,9 +322,13 @@ public:
 
         // pixel shader 단계에 pixel shader 객체 설정
         mpImmediateContext->PSSetShader(mpPixelShader, nullptr, 0);
-        // 장치즉시컨텍스트에게 정점버퍼의 내용을 (기하도형) 기반으로 그리라고(랜더링을) 지시한다
-        mpImmediateContext->Draw(3, 0);
-        // GPU에 보낼 정점의 개수, 보내기 시작할 첫번째 정점의 인덱스
+
+        //// 장치즉시컨텍스트에게 정점버퍼의 내용을 (기하도형) 기반으로 그리라고(랜더링을) 지시한다
+        //mpImmediateContext->Draw(3, 0);
+        //// GPU에 보낼 정점의 개수, 보내기 시작할 첫번째 정점의 인덱스
+
+        // 인덱스 버퍼를 이용하여 랜더링을 지시
+        mpImmediateContext->DrawIndexed(36, 0, 0);
         
         this->Present();
     }
