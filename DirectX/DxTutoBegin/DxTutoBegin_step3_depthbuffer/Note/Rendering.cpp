@@ -14,7 +14,7 @@
 	다루는 데이터들 :
 	VB
 	IB
-	vertex layout
+	vertex layout																		RenderTarget
 	topology																			Depth/Stencil Buffer
 	========================================================================================================================
 							|							texture buffer				|
