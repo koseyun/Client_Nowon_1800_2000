@@ -201,7 +201,7 @@ public:
             { XMFLOAT3(1.0f, 1.0f, -1.0f),   XMFLOAT3(1.0f, 0.0f, 0.0f) },
             { XMFLOAT3(1.0f, 1.0f, 1.0f),    XMFLOAT3(1.0f, 0.0f, 0.0f) },
                                              
-            { XMFLOAT3(-1.0f, 1.0f, -1.0f),  XMFLOAT3(0.0f, 0.0f, -1.0f) },
+            { XMFLOAT3(-1.0f, -1.0f, -1.0f),  XMFLOAT3(0.0f, 0.0f, -1.0f) },
             { XMFLOAT3(1.0f, -1.0f, -1.0f),  XMFLOAT3(0.0f, 0.0f, -1.0f) },
             { XMFLOAT3(1.0f, 1.0f, -1.0f),   XMFLOAT3(0.0f, 0.0f, -1.0f) },
             { XMFLOAT3(-1.0f, 1.0f,-1.0f),   XMFLOAT3(0.0f, 0.0f, -1.0f) },
@@ -375,7 +375,31 @@ public:
 
         // 조명 데이터
         XMFLOAT4 tLightDir = XMFLOAT4(0.0f, 0.0f, 1.0f, 0.0f); // 빛 벡터, 전방 방향으로 가정(z축의 양의 방향)
-        XMFLOAT4 tLightColor = XMFLOAT4(1.0f, 0.0f, 0.0f, 1.0f); // 빛 색상, 붉은색으로 가정
+        //XMFLOAT4 tLightDir = XMFLOAT4(-1.0f, -1.0f, .0f, 0.0f) // 비스듬
+        XMFLOAT4 tLightColor = XMFLOAT4(0.0f, 1.0f, 0.0f, 1.0f); // 빛 색상, 붉은색으로 가정
+        // 빨간색(1.0f, 0.0f, 0.0f, 1.0f) 연두색(0.0f, 1.0f, 0.0f, 1.0f) 파란색(0.0f, 0.0f, 1.0f, 1.0f)
+        // 노란색(1.0f, 1.0f, 0.0f, 1.0f) 핑크색(1.0f, 0.0f, 1.0f, 1.0f) 민트색(0.0f, 1.0f, 1.0f, 1.0f)
+        // 검정색(0.0f, 0.0f, 0.0f, 1.0f) 하얀색(1.0f, 1.0f, 1.0f, 1.0f)
+        
+        // 빛 방향을 뒤집어서 계산해준다
+        tLightDir.x = tLightDir.x * (-1.0f);
+        tLightDir.y = tLightDir.y * (-1.0f);
+        tLightDir.z = tLightDir.z * (-1.0f);
+
+        // 조명을 회전
+        XMMATRIX tRotateLight = XMMatrixRotationX(0.1f * t);
+        XMVECTOR tVectorLight = XMLoadFloat4(&tLightDir);           // XMFLOAT4 --> XMVECTOR
+        tVectorLight = XMVector3Transform(tVectorLight, tRotateLight); // 행렬과 벡터의 곱셈, 결과는 벡터 (x,y,z,0)
+        //XMVector3TransformCoord // 행렬과 벡터(위치)의 곱셈, 결과는 벡터(위치) (x,y,z,1)
+        XMStoreFloat4(&tLightDir, tVectorLight);                    // XMVECTOR --> XMFLOAT4
+
+        // XMVECTOR는 GPU연산에 최적화되어 만들어진 타입이다
+        // 그래서 컴파일 후에 16바이트 단위로 정렬되도록 만들어진다
+        // 그런데 이 정렬은 지역변수, 매개변수, 전역변수 등에만 적용되고 멤버변수에는 적용되지 않는다고 한다
+        // 그래서 응용프로그램 코드에 멤버변수는 주로 XMFLOAT 계열이 사용되었다
+        
+        //tVectorLight.
+        //tLightDir.
 
         /*
         // 상수버퍼용 지역변수 선언
@@ -407,6 +431,8 @@ public:
 
         // pixel shader 단계에 pixel shader 객체 설정
         mpImmediateContext->PSSetShader(mpPixelShader, nullptr, 0);
+        // 상수버퍼를 Pixel Shader에 설정
+        mpImmediateContext->PSSetConstantBuffers(0, 1, &mpCBTransform);
 
         //// 장치즉시컨텍스트에게 정점버퍼의 내용을 (기하도형) 기반으로 그리라고(랜더링을) 지시한다
         //mpImmediateContext->Draw(3, 0);

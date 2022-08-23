@@ -4,25 +4,32 @@
 	========================================================================================================================
 	기하단계										래스터라이즈
 	========================================================================================================================
-	IA						Vertex Shading			|	Pixel Shading					Output Merger
+	IA						Vertex Shading			|	Pixel Shading					OM
 	========================================================================================================================
 
 	Input
-	Assembler				Vertex Shader			|	Pixel Shader(PS)				프레임 버퍼들을 최종적으로 병합
+	Assembler				Vertex Shader			|	Pixel Shader(PS)				Output Merger
+																						프레임 버퍼들을 최종적으로 병합
 
 
 	다루는 데이터들 :
 	VB
 	IB
 	vertex layout																		
-	topology																			Depth/Stencil Buffer
-																						Render Target View
+	topology																			Depth/Stencil Buffer(Depth Buffer)
+																						Render Target View(Back Buffer)
 	========================================================================================================================
 							|							texture buffer				|
 							|							constant buffer				|
 	========================================================================================================================
 
-	Shader SourceCode File --> 컴파일 --> 바이트 코드 ByteCode(중간 결과물)
+	HLSL									Blob
+	Shader SourceCode File ---> 컴파일 ---> 바이트 코드 ByteCode (중간 결과물)
+
+	가장 기본적인 빛 종류 : 직사광(Directionial Light)
+	<-- 태양을 모사해서 만든 조명모델
+	--> 위치는 관계없다. 회전값만 물체에 영향을 미친다
+
 
 */
 

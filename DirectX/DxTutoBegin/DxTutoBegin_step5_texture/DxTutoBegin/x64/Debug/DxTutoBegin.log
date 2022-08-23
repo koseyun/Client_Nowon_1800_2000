@@ -1,0 +1,8 @@
+﻿C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\DirectX\DxTutoBegin\DxTutoBegin_step5_texture\DxTutoBegin\PixelShader.hlsl(55,19-39): warning X3206: 'dot': implicit truncation of vector type
+  
+  compilation object save succeeded; see C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\DirectX\DxTutoBegin\DxTutoBegin_step5_texture\x64\Debug\PixelShader.cso
+  compilation object save succeeded; see C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\DirectX\DxTutoBegin\DxTutoBegin_step5_texture\x64\Debug\VertexShader.cso
+  CDX_Engine.cpp
+  main.cpp
+  코드를 생성하고 있습니다...
+  DxTutoBegin.vcxproj -> C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\DirectX\DxTutoBegin\DxTutoBegin_step5_texture\x64\Debug\DxTutoBegin.exe
