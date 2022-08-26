@@ -15,6 +15,7 @@
 
 #include "framework.h"
 #include "CDX_Engine.h"
+#include "DDSTextureLoader.h"
 using namespace std;
 
 // 이것은 정점을 나타내는 구조체의 정의이다
@@ -73,7 +74,7 @@ class CDXEngine: public CDX_Engine
     // 텍스쳐는 뷰라는 개념으로 추상화
     ID3D11ShaderResourceView* mpTextureRV = nullptr;
     // 샘플링한다는 개념, 텍셀을 샘플링(골라) 면의 임의의 대응되는 지점에 픽셀단위에 칠한다
-    ID3D10SamplerState* mpSamplerLinear = nullptr;
+    ID3D11SamplerState* mpSamplerLinear = nullptr;
 
 public:
     CDXEngine() {};
@@ -195,7 +196,7 @@ public:
         // 그러므로 삼각형을 이루는 정점의 공유는 같은 곳을 바라보는 면에서만 이루어질 수 있다
         // <-- 이 사실이 중요한 사실이다!!
         // 그러므로 6면 * 4개 = 24개. 총 24개의 각각의 개별적인 정점 정보가 필요하다 
-        SimpleVertex vertices[] =
+        /*SimpleVertex vertices[] =
         {
             { XMFLOAT3(-1.0f, 1.0f, -1.0f),  XMFLOAT3(0.0f, 1.0f, 0.0f) },
             { XMFLOAT3(1.0f, 1.0f, -1.0f),   XMFLOAT3(0.0f, 1.0f, 0.0f) },
@@ -226,6 +227,38 @@ public:
             { XMFLOAT3(1.0f, -1.0f, 1.0f),   XMFLOAT3(0.0f, 0.0f, 1.0f) },
             { XMFLOAT3(1.0f, 1.0f, 1.0f),    XMFLOAT3(0.0f, 0.0f, 1.0f) },
             { XMFLOAT3(-1.0f, 1.0f, 1.0f),   XMFLOAT3(0.0f, 0.0f, 1.0f) }
+        };*/
+        SimpleVertex vertices[] =
+        {
+            { XMFLOAT3(-1.0f, 1.0f, -1.0f),  XMFLOAT2(1.0f, 0.0f) },
+            { XMFLOAT3(1.0f, 1.0f, -1.0f),   XMFLOAT2(0.0f, 0.0f) },
+            { XMFLOAT3(1.0f, 1.0f, 1.0f),    XMFLOAT2(0.0f, 1.0f) },
+            { XMFLOAT3(-1.0f, 1.0f, 1.0f),   XMFLOAT2(1.0f, 1.0f) },
+
+            { XMFLOAT3(-1.0f, -1.0f, -1.0f), XMFLOAT2(0.0f, 0.0f) },
+            { XMFLOAT3(1.0f, -1.0f, -1.0f),  XMFLOAT2(1.0f, 0.0f) },
+            { XMFLOAT3(1.0f, -1.0f, 1.0f),   XMFLOAT2(1.0f, 1.0f) },
+            { XMFLOAT3(-1.0f, -1.0f, 1.0f),  XMFLOAT2(0.0f, 1.0f) },
+
+            { XMFLOAT3(-1.0f, -1.0f, 1.0f),  XMFLOAT2(0.0f, 1.0f) },
+            { XMFLOAT3(-1.0f, -1.0f, -1.0f), XMFLOAT2(1.0f, 1.0f) },
+            { XMFLOAT3(-1.0f, 1.0f, -1.0f),  XMFLOAT2(1.0f, 0.0f) },
+            { XMFLOAT3(-1.0f, 1.0f, 1.0f),   XMFLOAT2(0.0f, 0.0f) },
+            
+            { XMFLOAT3(1.0f, -1.0f, 1.0f),   XMFLOAT2(1.0f, 1.0f) },
+            { XMFLOAT3(1.0f, -1.0f, -1.0f),  XMFLOAT2(0.0f, 1.0f) },
+            { XMFLOAT3(1.0f, 1.0f, -1.0f),   XMFLOAT2(0.0f, 0.0f) },
+            { XMFLOAT3(1.0f, 1.0f, 1.0f),    XMFLOAT2(1.0f, 0.0f) },
+            
+            { XMFLOAT3(-1.0f, -1.0f, -1.0f), XMFLOAT2(0.0f, 1.0f) },
+            { XMFLOAT3(1.0f, -1.0f, -1.0f),  XMFLOAT2(1.0f, 1.0f) },
+            { XMFLOAT3(1.0f, 1.0f, -1.0f),   XMFLOAT2(1.0f, 0.0f) },
+            { XMFLOAT3(-1.0f, 1.0f,-1.0f),   XMFLOAT2(0.0f, 0.0f) },
+            
+            { XMFLOAT3(-1.0f, -1.0f, 1.0f),  XMFLOAT2(1.0f, 1.0f) },
+            { XMFLOAT3(1.0f, -1.0f, 1.0f),   XMFLOAT2(0.0f, 1.0f) },
+            { XMFLOAT3(1.0f, 1.0f, 1.0f),    XMFLOAT2(0.0f, 0.0f) },
+            { XMFLOAT3(-1.0f, 1.0f, 1.0f),   XMFLOAT2(1.0f, 0.0f) }
         };
         // 주설명
         D3D11_BUFFER_DESC bd = {};
@@ -310,6 +343,36 @@ public:
         mpImmediateContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
         // 도형을 어떤 방식으로 그릴지 방법을 정하는 것이다
         // 여기서는 정점 3개를 모아서 하나의 삼각형을 구성하는 형태로 랜더링한다
+
+        // 해당 함수는 튜토리얼에서 제공하는 것을 가져옴
+        // 파일로부터 이미지 데이터를 가져와 텍스쳐 뷰 객체에 데이터를 설정한다
+        CreateDDSTextureFromFile(mpd3dDevice, L"resources/testUV256by256.dds", nullptr, &mpTextureRV);
+
+        // 샘플링에 관한 설명
+        
+        // 텍셀에서 픽셀로 대응시킬 시 업스케일링(upscaling)이나 다운스케일링(downscaling)이 일어나는데 이 과정에서 알리아싱 현상이 발생한다
+        // 알리아싱 현상을 해결하는 방법이 안티알리아싱이다
+        // 이 안티알리아싱 알고리즘 중 선형보간에 의한 방법을 쓰겠다라고 설정한 것이다
+
+        // 선형보간 Linear Interpolation
+        // 두개의 데이터가 주어지고 임의의 값을 구하려고 하는데 원래 함수를 모를 경우
+        // 두개의 데이터로 만들 수 있는 일차함수를 이용하여 근사치 값을 구하는 것
+        // <-- 일차함수를 이용하여 근사치를 구한다
+
+        D3D11_SAMPLER_DESC sampDesc = {};
+        sampDesc.Filter          = D3D11_FILTER_MIN_MAG_MIP_LINEAR; // 선형보간
+        sampDesc.AddressU        = D3D11_TEXTURE_ADDRESS_WRAP;  // 경계를 넘어갔을 시 처리는 반복
+        sampDesc.AddressV        = D3D11_TEXTURE_ADDRESS_WRAP;
+        sampDesc.AddressW        = D3D11_TEXTURE_ADDRESS_WRAP;
+        sampDesc. ComparisonFunc = D3D11_COMPARISON_NEVER; // 샘플링 과정에서 비교함수는 따로 없음
+        sampDesc.MinLOD          = 0;                   // LOD의 최솟값
+        sampDesc.MaxLOD          = D3D11_FLOAT32_MAX;   // LOD의 최댓값
+        // LOD Level Of Detail
+        // 원근투영이 되었다면 텍셀에 대응되는 픽셀은 거리에 따라 달라진다
+        // 이때 텍셀에 대응되는 픽셀이 많으면 고해상도, 적으면 저해상도로 처리하는 것을 말한다
+
+        mpd3dDevice->CreateSamplerState(&sampDesc, &mpSamplerLinear);
+
         
         // Constant Buffer 상수버퍼 생성
         // 주설명
@@ -434,7 +497,6 @@ public:
         // UpdateSubresource : 상수버퍼의 내용을 갱신해주는 함수
         mpImmediateContext->UpdateSubresource(mpCBTransform, 0, nullptr, &cb, 0, 0);
         */
-
         
         //this->Clear(0.1f, 0.1f, 0.3f);
         this->Clear(Colors::BlueViolet);
@@ -449,6 +511,11 @@ public:
         mpImmediateContext->PSSetShader(mpPixelShader, nullptr, 0);
         // 상수버퍼를 Pixel Shader에 설정
         mpImmediateContext->PSSetConstantBuffers(0, 1, &mpCBTransform);
+
+        // 픽셀 셰이더 개체에 텍스쳐 리소스를 설정한다
+        mpImmediateContext->PSSetShaderResources(0, 1, &mpTextureRV);
+        // 픽셀 셰이더 단계에 샘플 상태 객체를 설정한다
+        mpImmediateContext->PSSetSamplers(0, 1, &mpSamplerLinear);
 
         //// 장치즉시컨텍스트에게 정점버퍼의 내용을 (기하도형) 기반으로 그리라고(랜더링을) 지시한다
         //mpImmediateContext->Draw(3, 0);

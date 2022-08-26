@@ -56,7 +56,10 @@ PS_INPUT main(VS_INPUT i)
 	//o.Norm = mul(float4(i.Norm, 1), World).xyz;
 
 	// 벡터로 인지하고 있다 (x,y,z,0)
-	o.Norm = mul(float4(i.Norm, 0), World).xyz;
+	//o.Norm = mul(float4(i.Norm, 0), World).xyz;
+
+	// UV텍스쳐 좌표는 그냥 다음단계로 전달
+	o.Tex = i.Tex;
 
 	// 색상 정보는 그대로 다음 단계로 넘긴다
 	//o.Color = i.Color;
