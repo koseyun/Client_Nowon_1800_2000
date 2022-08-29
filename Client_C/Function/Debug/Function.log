@@ -1,5 +1,0 @@
-﻿  Function.c
-C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_C\Function\Function.c(26,5): warning C4013: 'sum'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
-C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_C\Function\Function.c(28,5): warning C4013: 'sub'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
-C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_C\Function\test.h(9): warning C4716: 'doSomething': 값을 반환해야 합니다.
-  Function.vcxproj -> C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_C\Debug\Function.exe

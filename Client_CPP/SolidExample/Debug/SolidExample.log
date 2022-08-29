@@ -1,6 +1,0 @@
-﻿  InventorySlot.cpp
-InventorySlot.obj : error LNK2019: "private: void __thiscall InventorySlot::Pick(void)" (?Pick@InventorySlot@@AAEXXZ)"private: virtual void __thiscall InventorySlot::OnPointerDown(void)" (?OnPointerDown@InventorySlot@@EAEXXZ) 함수에서 참조되는 확인할 수 없는 외부 기호
-InventorySlot.obj : error LNK2019: "private: void __thiscall InventorySlot::Dragging(void)" (?Dragging@InventorySlot@@AAEXXZ)"private: virtual void __thiscall InventorySlot::OnPointerDrag(void)" (?OnPointerDrag@InventorySlot@@EAEXXZ) 함수에서 참조되는 확인할 수 없는 외부 기호
-InventorySlot.obj : error LNK2019: "private: void __thiscall InventorySlot::Drop(void)" (?Drop@InventorySlot@@AAEXXZ)"private: virtual void __thiscall InventorySlot::OnPointerUp(void)" (?OnPointerUp@InventorySlot@@EAEXXZ) 함수에서 참조되는 확인할 수 없는 외부 기호
-MSVCRTD.lib(exe_main.obj) : error LNK2019: _main"int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ) 함수에서 참조되는 확인할 수 없는 외부 기호
-C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\Debug\SolidExample.exe : fatal error LNK1120: 4개의 확인할 수 없는 외부 참조입니다.

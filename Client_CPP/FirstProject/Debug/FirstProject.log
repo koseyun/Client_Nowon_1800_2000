@@ -1,5 +1,0 @@
-﻿  FirstProject.cpp
-C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(700,5): error MSB6006: "CL.exe"이(가) 종료되었습니다(코드: 2).
-C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\FirstProject\FirstProject.cpp(40,23): error C2440: '초기화 중': 'const char [6]'에서 'double'(으)로 변환할 수 없습니다.
-C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\FirstProject\FirstProject.cpp(40,14): message : 이 변환이 가능한 컨텍스트가 없습니다.
-C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\Client_CPP\FirstProject\FirstProject.cpp(40,25): error C2059: 구문 오류: '문자열'
