@@ -1,3 +1,4 @@
-﻿C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\DirectX\DxTutoBegin\DxTutoBasic_step1_mtl_texture\DxTutoBegin\PixelShader.hlsl(14,1-12): error X3000: syntax error: unexpected token 'SamplerState'
-  
-  compilation failed; no code produced
+﻿  CMesh.cpp
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\DirectX\DxTutoBegin\DxTutoBasic_step2_loadmodel\DxTutoBegin\CMesh.cpp(121,36): warning C4267: '=': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\DirectX\DxTutoBegin\DxTutoBasic_step2_loadmodel\DxTutoBegin\CMesh.cpp(122,40): warning C4267: '=': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  DxTutoBegin.vcxproj -> C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\DirectX\DxTutoBegin\DxTutoBasic_step2_loadmodel\x64\Debug\DxTutoBegin.exe

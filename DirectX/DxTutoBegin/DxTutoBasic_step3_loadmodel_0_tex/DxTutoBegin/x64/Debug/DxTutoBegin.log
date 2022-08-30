@@ -1,0 +1,5 @@
+﻿  main.cpp
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\DirectX\DxTutoBegin\DxTutoBasic_step3_loadmodel_0\DxTutoBegin\CMesh.h(152,21): warning C4101: 'tUV' :참조되지 않은 지역 변수입니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\DirectX\DxTutoBegin\DxTutoBasic_step3_loadmodel_0\DxTutoBegin\CMesh.h(151,21): warning C4101: 'tFace' :참조되지 않은 지역 변수입니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\DirectX\DxTutoBegin\DxTutoBasic_step3_loadmodel_0\DxTutoBegin\CMesh.h(153,21): warning C4101: 'tNormal' :참조되지 않은 지역 변수입니다.
+  DxTutoBegin.vcxproj -> C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\DirectX\DxTutoBegin\DxTutoBasic_step3_loadmodel_0\x64\Debug\DxTutoBegin.exe

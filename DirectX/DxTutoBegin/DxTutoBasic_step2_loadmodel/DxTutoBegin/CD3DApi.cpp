@@ -31,7 +31,6 @@ void CD3DApi::Present()
 
 HRESULT CD3DApi::Create(HWND thWnd)
 {
-
     // 윈도우 핸들을 넘겨받는다
     mhWnd = thWnd;
 

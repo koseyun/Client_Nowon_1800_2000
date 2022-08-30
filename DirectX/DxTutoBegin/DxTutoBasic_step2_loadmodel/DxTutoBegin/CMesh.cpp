@@ -20,11 +20,11 @@ CMesh::~CMesh()
 
 }
 
-void CMesh::Create(ID3D11Device* tpDevice)
+void CMesh::Create(ID3D11Device* tpDevice, LPCWSTR tpFileName)
 {
     CreateBuffers(tpDevice);
 
-    mpTexture = new CTextureRyu();
+    mpTexture = new CTextureApi();
     mpTexture->Create(tpDevice, tpFileName);
 }
 void CMesh::Destroy()
@@ -113,7 +113,8 @@ void CMesh::CreateBuffers(ID3D11Device* tpDevice)
     };*/
 
     // 파일로부터 모델 데이터를 읽어들임
-    LoadFromObjectFile("resources / test_cube.obj");
+    //LoadFromObjectFile("resources/test_cube.obj");
+    LoadFromObjectFile("resources/slime.obj");
 
     // 파일로부터 가져온 데이터 그대로 개수를 세어
     // 정점 개수, 인덱스 개수를 결정함
@@ -203,12 +204,12 @@ void CMesh::RenderBuffers(ID3D11DeviceContext* tpDeviceContext)
     tpDeviceContext->IASetVertexBuffers(0, 1, &mpVertexBuffer, &stride, &offset);
     tpDeviceContext->IASetIndexBuffer(mpIndexBuffer, DXGI_FORMAT_R16_UINT, 0);
     tpDeviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+
     // 인덱스 버퍼 정보를 이용하여 랜더링
-    tpDeviceContext->DrawIndexed(mCountIndex, 0, 0);
+    //tpDeviceContext->DrawIndexed(mCountIndex, 0, 0);
 }
 
 ID3D11ShaderResourceView* CMesh::GetTexture()
 {
     return mpTexture->GetTexture();
-
 }
