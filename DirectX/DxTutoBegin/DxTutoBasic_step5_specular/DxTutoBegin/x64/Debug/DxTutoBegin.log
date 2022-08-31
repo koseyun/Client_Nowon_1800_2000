@@ -1,0 +1,8 @@
+﻿C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\DirectX\DxTutoBegin\DxTutoBasic_step4_ambient\DxTutoBegin\PixelShader.hlsl(53,28-48): warning X3206: 'dot': implicit truncation of vector type
+  
+  compilation object save succeeded; see C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\DirectX\DxTutoBegin\DxTutoBasic_step4_ambient\x64\Debug\PixelShader.cso
+  main.cpp
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\DirectX\DxTutoBegin\DxTutoBasic_step4_ambient\DxTutoBegin\CMesh.h(157,21): warning C4101: 'tUV' :참조되지 않은 지역 변수입니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\DirectX\DxTutoBegin\DxTutoBasic_step4_ambient\DxTutoBegin\CMesh.h(156,21): warning C4101: 'tFace' :참조되지 않은 지역 변수입니다.
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\DirectX\DxTutoBegin\DxTutoBasic_step4_ambient\DxTutoBegin\CMesh.h(158,21): warning C4101: 'tNormal' :참조되지 않은 지역 변수입니다.
+  DxTutoBegin.vcxproj -> C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\DirectX\DxTutoBegin\DxTutoBasic_step4_ambient\x64\Debug\DxTutoBegin.exe

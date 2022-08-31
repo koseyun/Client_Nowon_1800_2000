@@ -2,15 +2,15 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\DirectX\DxTutoBegin\DxTutoBegin_step5-1_texture\x64\Debug\DxTutoBegin.exe</FullPath>
+      <FullPath>C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\DirectX\DxTutoBegin\DxTutoBasic_step1_mtl_texture\x64\Debug\DxTutoBegin.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles>
     <ContentFile>
-      <FullPath>C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\DirectX\DxTutoBegin\DxTutoBegin_step5-1_texture\x64\Debug\PixelShader.cso</FullPath>
+      <FullPath>C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\DirectX\DxTutoBegin\DxTutoBasic_step1_mtl_texture\x64\Debug\PixelShader.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\DirectX\DxTutoBegin\DxTutoBegin_step5-1_texture\x64\Debug\VertexShader.cso</FullPath>
+      <FullPath>C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\DirectX\DxTutoBegin\DxTutoBasic_step1_mtl_texture\x64\Debug\VertexShader.cso</FullPath>
     </ContentFile>
   </ContentFiles>
   <SatelliteDlls />

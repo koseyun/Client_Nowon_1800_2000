@@ -10,8 +10,8 @@
 
 // 슬롯 번호를 명시적으로 지정해 줄 수 있다
 // 지정하지 않으면 자동으로 매겨준다
-Texture2D txDiffuse:register(t0) // texture 0번 슬롯
-SamplerState samLinear:register(s0) //sampler 0번 슬롯
+Texture2D txDiffuse:register(t0); // texture 0번 슬롯
+SamplerState samLinear:register(s0); //sampler 0번 슬롯
 
 // cbuffer 상수버퍼 만들기 예약어
 // 16byte 단위로 정렬해야 안전
