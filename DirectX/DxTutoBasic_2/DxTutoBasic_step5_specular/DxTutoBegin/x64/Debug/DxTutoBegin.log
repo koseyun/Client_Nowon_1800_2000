@@ -1,0 +1,5 @@
+﻿C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\DirectX\DxTutoBasic_2\DxTutoBasic_step5_specular\DxTutoBegin\PixelShader.hlsl(59,28-48): warning X3206: 'dot': implicit truncation of vector type
+C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\DirectX\DxTutoBasic_2\DxTutoBasic_step5_specular\DxTutoBegin\PixelShader.hlsl(75,16-40): warning X3206: 'reflect': implicit truncation of vector type
+  
+  compilation object save succeeded; see C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\DirectX\DxTutoBasic_2\DxTutoBasic_step5_specular\x64\Debug\PixelShader.cso
+  DxTutoBegin.vcxproj -> C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\DirectX\DxTutoBasic_2\DxTutoBasic_step5_specular\x64\Debug\DxTutoBegin.exe
