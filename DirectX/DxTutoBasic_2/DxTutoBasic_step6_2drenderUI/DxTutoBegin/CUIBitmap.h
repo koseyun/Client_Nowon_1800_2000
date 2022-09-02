@@ -21,7 +21,7 @@ public:
 public:
     void Create(ID3D11Device* tpDevice, LPCWSTR tpFileName, int tScreenWidth, int tScreenHeight, int tBitmapWidth, int tBitmapHeight);
     void Destroy();
-    void Render();
+    void Render(int tPosX, int tPosY);
 
     // getter
     int GetCountIndex() const

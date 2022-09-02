@@ -6,6 +6,21 @@
     1. 직교투영 orthographic projection
     2. Z buffer 해제
     3. 동적 정점 버퍼 Dynamic vertex buffer의 이용
+
+    Default Buffer
+        처음에 값을 설정해두고 바꾸지 않는다
+        UpdateSubResource를 사용해서만 업데이트 할 수 있다
+        자주 업데이트 되지 않는 데이터들에 적합하다(프레임당 한번 이하)
+
+    Dynamic Buffer
+        Map, Unmap을 사용해서 업데이트 가능하다
+        프레임당 한번 이상! 자주 업데이트! 되는 경우에 적합하다
+
+    Constant Buffer
+        UpdateSubResource를 사용해서 업데이트한다
+        자주 업데이트 된다
+        시스템 메모리 -> 시스템 메모리(상수버퍼용) -전달-> GPU
+
 */
 
 #include "framework.h"
@@ -14,10 +29,10 @@
 using namespace std;
 
 #include "apibuffer.h"
-
 #include "CMesh.h"
 #include "CMtlTexture.h"
 #include "CTextureApi.h"
+#include "CUIBitmap.h"
 
 class CDXEngine: public CDX_Engine
 {
@@ -34,6 +49,8 @@ class CDXEngine: public CDX_Engine
     CMesh* mpMesh = nullptr;
     CMtlTexture* mpMtlTex = nullptr;
     //extureApi* mpTexture = nullptr;
+
+    CUIBitmap* mpUIBitmap = nullptr;
 
     // 랜더링에 사용할 자원
     ID3D11Buffer* mpCBTransform = nullptr; // 변환행렬 정보들을 담을 상수버퍼이다
@@ -75,6 +92,10 @@ public:
         mpMtlTex->Create(this->GetD3DDevice());
         mpMtlTex->SetEngine(this);
 
+        mpUIBitmap = new CUIBitmap();
+        mpUIBitmap->Create(this->GetD3DDevice(), L"resources/test_title.dds", 800, 600, 128, 128);//256, 256);
+        mpUIBitmap->SetEngine(this);
+
         /* mpTexture = new CTextureApi();
         mpTexture->Create(GetD3DDevice(), L"resources/testUV256by256.dds");*/
 
@@ -103,11 +124,11 @@ public:
         float tLength = 15.0f;//2.0f;
 
         mCameraPosition.x = 0.0f;
-        mCameraPosition.y = 1.0f * tLength;
-        mCameraPosition.z = -1.0f * tLength;
+        mCameraPosition.y = 0.0f * tLength;
+        mCameraPosition.z = -5.0f * tLength;
 
         XMVECTOR tEye = XMVectorSet(mCameraPosition.x, mCameraPosition.y, mCameraPosition.z, 0.0f);
-        XMVECTOR tAt = XMVectorSet(0.0f, 0.5f, 0.0f, 1.0f);
+        XMVECTOR tAt = XMVectorSet(0.0f, 0.0f, 0.0f, 1.0f); // (바라보는 방향)
         XMVECTOR tUp = XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f);     // 상방벡터
 
         mMatView = XMMatrixLookAtLH(tEye, tAt, tUp);
@@ -115,13 +136,30 @@ public:
         // 투영변환행렬
         mMatProjection = XMMatrixIdentity(); // 단위행렬
 
-        RECT rc;
+        /*RECT rc;
         GetClientRect(mhWnd, &rc);
         UINT width = rc.right - rc.left;
         UINT height = rc.bottom - rc.top;
         float tAspectRatio = width / (float)height;
         // 시야각, 종횡비, 근평면까지의 거리, 원평면까지의 거리를 기반으로 원근 투영변환 행렬을 만든다
-        mMatProjection = XMMatrixPerspectiveFovLH(XM_PIDIV2, tAspectRatio, 0.01f, 100.0f);
+        mMatProjection = XMMatrixPerspectiveFovLH(XM_PIDIV2, tAspectRatio, 0.01f, 100.0f);*/
+
+        // 직교투영행렬
+        mMatProjection = XMMatrixIdentity(); // 단위행렬
+
+        RECT rc;
+        GetClientRect(mhWnd, &rc);
+        UINT width = rc.right - rc.left;
+        UINT height = rc.bottom - rc.top;
+        float tAspectRatio = width / (float)height;
+
+        // 원근감이 없는 투영이므로 카메라와 물체의 거리로는 멀고 가까움을(작게 크게 표시) 표현 할 수 없고 이것을 조정함으로 작고 크게 표현 가능하다
+        // 1 unit에 몇 픽셀이 들어가느냐라는 개념
+        // 그러므로 픽셀이 많이 들어갈수록 화면에 출력되는 이미지는 작아진다
+        float tPixelPerUnit = 1.0f;// 1.0f;
+
+        // 뷰포트의 너비, 높이, 근평면까지의 거리, 원평면까지의 거리를 기반으로 원근 투영변환 행렬을 만든다
+        mMatProjection = XMMatrixOrthographicLH(width * tPixelPerUnit, height * tPixelPerUnit, 0.01f, 100.0f);
     }
 
     virtual void OnDestroy() override
@@ -172,21 +210,8 @@ public:
         t = t + 2.5f * tDeltaTime;
         // 상방축을 회전축으로 회전, 얼마만큼 회전할지는 각도로 주어진다
         // 각도 단위는 라디안
-        mMatWorld_0 = XMMatrixRotationY(t * 0.5f);
-        //mMatWorld_0 = XMMatrixRotationY(0); // 회전 X
-
-        // 상방축을 회전축으로 회전, 얼마만큼 회전할지는 각도로 주어진다
-        //mMatWorld_1 = XMMatrixRotationY(t * 1.5f);
-
-        XMMATRIX tRotation = XMMatrixRotationY(t * 1.0f);
-        XMMATRIX tTranslate = XMMatrixTranslation(0.0f, 0.0f, 10.0f);
-
-        // 물체의 입장에서 보면 '자전'운동이 일어난다
-        mMatWorld_1 = tRotation * tTranslate; // 행벡터* 회전변환행렬 * 이동변환행렬 // 회전하고 그리고나서 이동한다
-
-        // 행렬의 곱셈은 교환법칙이 성립하지 않는다
-        // 물체의 입장에서 보면 '공전'운동이 일어난다
-        //mMatWorld_1 = tTranslate * tRotation; // 행벡터* 이동변환행렬 * 회전변환행렬 // 이동하고 그리고나서 회전한다
+        //mMatWorld_0 = XMMatrixRotationY(t * 0.5f);
+        mMatWorld_0 = XMMatrixRotationY(0); // 회전 X
 
         // 조명 데이터
         XMFLOAT4 tLightDir = XMFLOAT4(0.0f, 0.0f, 1.0f, 0.0f); // 빛 벡터, 전방 방향으로 가정(z축의 양의 방향)
@@ -216,9 +241,26 @@ public:
 
         // 정반사광 컬러
         XMFLOAT4 tSpecularColor = XMFLOAT4(0.5f, 0.5f, 1.0f, 1.0f);
-
         // 정반사광 강도(날카로움)
-        float tPower = 45.0f;
+        float tPower = 15.0f;
+
+
+        // for UIBitmap        
+        mMatWorld_1 = XMMatrixIdentity(); // 단위행렬
+        // 조명 데이터
+        XMFLOAT4 tLightDirBitmap = XMFLOAT4(0.0f, 0.0f, 1.0f, 0.0f); // 빛 벡터, 전방 방향으로 가정(z축의 양의 방향)
+        XMFLOAT4 tLightColorBitmap = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f); // 빛 색상, 흰색으로 가정
+        // 빛 방향을 뒤집어서 계산해준다
+        tLightDirBitmap.x = tLightDirBitmap.x * (-1.0f);
+        tLightDirBitmap.y = tLightDirBitmap.y * (-1.0f);
+        tLightDirBitmap.z = tLightDirBitmap.z * (-1.0f);
+
+        // 주변광 컬러
+        XMFLOAT4 tAmbientColorBitmap = XMFLOAT4(1.0f, 1.05f, 1.0f, 1.0f);
+        // 정반사광 컬러
+        XMFLOAT4 tSpecularColorBitmap = XMFLOAT4(1.0f, 1.05f, 1.0f, 1.0f);
+        // 정반사광 강도(날카로움)
+        float tPowerBitmap = 1.0f;
 
 
         //this->Clear(0.1f, 0.1f, 0.3f);
@@ -243,11 +285,36 @@ public:
         cb.mSpecularPower = tPower;
         cb.mCameraPosition = mCameraPosition;   // 카메라 위치
 
+
+        CBTransform cbBitmap;
+
+        cbBitmap.mWorld = XMMatrixTranspose(mMatWorld_0);            // 전치
+        cbBitmap.mView = XMMatrixTranspose(mMatView);                // 전치
+        cbBitmap.mProjection = XMMatrixTranspose(mMatProjection);    // 전치
+        cbBitmap.LightDir = tLightDirBitmap;
+        cbBitmap.LightColor = tLightColorBitmap;
+        cbBitmap.mAmbientColor = tAmbientColorBitmap;       // 주변광
+        cbBitmap.mSpecularColor = tSpecularColorBitmap;     // 정반사광 관련
+        cbBitmap.mSpecularPower = tPowerBitmap;
+        cbBitmap.mCameraPosition = mCameraPosition;   // 카메라 위치
+
+
         // UpdateSubresource : 상수버퍼의 내용을 갱신해주는 함수
         GetImmediateContext()->UpdateSubresource(mpCBTransform, 0, nullptr, &cb, 0, 0);
 
         mpMesh->Render();
         mpMtlTex->Render(mpMesh->GetCountIndex(), mpMesh->GetTexture());
+
+        // 2d 그리기 모드 : z buffer 검사를 비활성화한다
+        mpD3D->DoTurnZBufferOff();
+
+            // UpdateSubresource : 상수버퍼의 내용을 갱신해주는 함수
+            GetImmediateContext()->UpdateSubresource(mpCBTransform, 0, nullptr, &cbBitmap, 0, 0);
+
+            mpUIBitmap->Render(100,100);
+            mpMtlTex->Render(mpUIBitmap->GetCountIndex(), mpUIBitmap->GetTexture());
+
+        mpD3D->DoTurnZBufferOn();
 
         this->mpD3D->Present();
     }

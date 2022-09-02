@@ -37,6 +37,10 @@ private:
 	ID3D11Texture2D* mpDepthStencil = nullptr;
 	ID3D11DepthStencilView* mpDepthStencilView = nullptr;
 
+	// 깊이버퍼 활성상태, 비활성상태 변수
+	ID3D11DepthStencilState* mDepthEnableStencilState = nullptr;
+	ID3D11DepthStencilState* mDepthDisableStencilState = nullptr;
+
 	// 윈도우 핸들
 	HWND mhWnd;
 
@@ -47,6 +51,10 @@ public:
 	void Clear(float tR = 0.0f, float tG = 0.0f, float tB = 0.0f);
 	void Clear(XMVECTORF32 tColor);
 	void Present();
+
+	// 깊이버퍼 활성상태, 비활성상태 변수
+	void DoTurnZBufferOn();
+	void DoTurnZBufferOff();
 
 	HRESULT CompileShaderFromFile(const WCHAR* szFileName, LPCSTR szEntryPoint, LPCSTR szShaderModel, ID3DBlob** ppBlobOut);
 

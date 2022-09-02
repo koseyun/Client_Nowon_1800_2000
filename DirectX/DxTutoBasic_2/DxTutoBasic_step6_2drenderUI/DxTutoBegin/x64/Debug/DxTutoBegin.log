@@ -1,4 +1,2 @@
-﻿  main.cpp
-C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\DirectX\DxTutoBasic_2\DxTutoBasic_step6_2drenderUI\DxTutoBegin\CMesh.h(155,21): warning C4101: 'tUV' :참조되지 않은 지역 변수입니다.
-C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\DirectX\DxTutoBasic_2\DxTutoBasic_step6_2drenderUI\DxTutoBegin\CMesh.h(154,21): warning C4101: 'tFace' :참조되지 않은 지역 변수입니다.
-C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\DirectX\DxTutoBasic_2\DxTutoBasic_step6_2drenderUI\DxTutoBegin\CMesh.h(156,21): warning C4101: 'tNormal' :참조되지 않은 지역 변수입니다.
+﻿  CUIBitmap.cpp
+  DxTutoBegin.vcxproj -> C:\Users\User\Documents\GitHub\Client_Nowon_1800_2000\DirectX\DxTutoBasic_2\DxTutoBasic_step6_2drenderUI\x64\Debug\DxTutoBegin.exe

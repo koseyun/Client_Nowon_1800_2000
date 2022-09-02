@@ -47,8 +47,10 @@ void CUIBitmap::Destroy()
 
     ShutdownBuffers();
 }
-void CUIBitmap::Render()
+void CUIBitmap::Render(int tPosX, int tPosY)
 {
+    UpdateBuffers(mpEngine->GetImmediateContext(), tPosX, tPosY);
+
     RenderBuffers(mpEngine->GetImmediateContext());
 }
 
@@ -152,6 +154,16 @@ bool CUIBitmap::UpdateBuffers(ID3D11DeviceContext* tpImmediateContext, int tPosX
     D3D11_MAPPED_SUBRESOURCE mappedResource;
     SimpleVertex* verticesPtr = nullptr;
 
+    // 출력위치 변경이 없다면 map, unmap을 이용한 vertex buffer 갱신을 하지 않는다
+    // <- 그렇게하면 보다 효율적인 진행이 가능하다(연산이 줄어드므로)
+    if ((mPrePosX == tPosX) && (mPrePosY == tPosY))
+    {
+        return true;
+    }
+
+    mPrePosX = tPosX;
+    mPrePosY = tPosY;
+
     left = (mScreenWidth / 2.0f) * (-1.0f) + (float)tPosX;
     right = left + (float)mBitmapWidth;
 
@@ -159,24 +171,45 @@ bool CUIBitmap::UpdateBuffers(ID3D11DeviceContext* tpImmediateContext, int tPosX
     bottom = top - (float)mBitmapHeight;
 
     tpVertices = new SimpleVertex[mCountVertex];
+    // 초기화
+    memset(tpVertices, 0, sizeof(SimpleVertex) * mCountVertex);
 
+    // normal 데이터는 설정하지 않았다
+
+    // 첫번째 삼각형
     tpVertices[0].Pos = XMFLOAT3(left, top, 0.0f);
-    tpVertices[0].Pos = XMFLOAT2(0.0f, 0.0f);
+    tpVertices[0].Tex = XMFLOAT2(0.0f, 0.0f);
 
-    tpVertices[1].Pos = 
-    tpVertices[1].Pos = 
+    tpVertices[1].Pos = XMFLOAT3(right, bottom, 0.0f);
+    tpVertices[1].Tex = XMFLOAT2(1.0f, 1.0f);
 
-    tpVertices[2].Pos = 
-    tpVertices[2].Pos = 
+    tpVertices[2].Pos = XMFLOAT3(left, bottom, 0.0f);
+    tpVertices[2].Tex = XMFLOAT2(0.0f, 1.0f);
+    // 두번째 삼각형
+    tpVertices[3].Pos = XMFLOAT3(left, top, 0.0f);
+    tpVertices[3].Tex = XMFLOAT2(0.0f, 0.0f);
 
-    tpVertices[3].Pos = 
-    tpVertices[3].Pos = 
+    tpVertices[4].Pos = XMFLOAT3(right, top, 0.0f);
+    tpVertices[4].Tex = XMFLOAT2(1.0f, 0.0f);
 
-    tpVertices[4].Pos = 
-    tpVertices[4].Pos = 
+    tpVertices[5].Pos = XMFLOAT3(right, bottom, 0.0f);
+    tpVertices[5].Tex = XMFLOAT2(1.0f, 1.0f);
 
-    tpVertices[5].Pos = 
-    tpVertices[5].Pos = 
+    // 실시간으로 vertex buffer에 위의 데이터 내용을 써넣는다
+
+    // Map, Unmap 짝을 맞춰야만 한다
+    // Map은 vertex buffer에 CPU 명령을 통해 작업을 하기 위해 다른 작업들에 대해서는 잠금을 하는 것이다
+    // 이 함수를 호출하면 mappedResource에 데이터를 써넣기 위한 포인터 변수값을 설정해준다
+    // vertex buffer의 쓰기 제어권을 얻는다
+    tpImmediateContext->Map(mpVertexBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mappedResource);
+
+        // void*(범용적인 형태)로 얻어온 vertex buffer의 내용을 우리가 다루는 데이터 형식으로 형변환
+        verticesPtr = (SimpleVertex*)mappedResource.pData;
+        // 복사해서 써넣는다
+        memcpy(verticesPtr, (void*)tpVertices, sizeof(SimpleVertex) * mCountVertex);
+
+    // vertex buffer의 쓰기 제어권을 돌려준다
+    tpImmediateContext->Unmap(mpVertexBuffer, 0);
 
     if (tpVertices)
     {

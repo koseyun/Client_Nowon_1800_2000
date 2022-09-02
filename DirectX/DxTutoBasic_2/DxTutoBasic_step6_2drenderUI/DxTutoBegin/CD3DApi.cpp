@@ -29,6 +29,16 @@ void CD3DApi::Present()
     mpSwapChain->Present(0, 0);
 }
 
+void CD3DApi::DoTurnZBufferOn()
+{
+    mpImmediateContext->OMSetDepthStencilState(mDepthEnableStencilState, 1);
+}
+
+void CD3DApi::DoTurnZBufferOff()
+{
+    mpImmediateContext->OMSetDepthStencilState(mDepthDisableStencilState, 1);
+}
+
 HRESULT CD3DApi::Create(HWND thWnd)
 {
     // 윈도우 핸들을 넘겨받는다
@@ -223,6 +233,19 @@ HRESULT CD3DApi::Create(HWND thWnd)
 
     // 랜더타겟뷰에 깊이스텐실 뷰 설정
     mpImmediateContext->OMSetRenderTargets(1, &mpRenderTargetView, mpDepthStencilView);
+
+    D3D11_DEPTH_STENCIL_DESC descEnableDepthStencil;
+    D3D11_DEPTH_STENCIL_DESC descDisableDepthStencil;
+
+    ZeroMemory(&descEnableDepthStencil, sizeof(D3D11_DEPTH_STENCIL_DESC));
+    descEnableDepthStencil.DepthEnable = true;
+    // 설명을 기반으로 객체 만듦
+    mpd3dDevice->CreateDepthStencilState(&descEnableDepthStencil, &mDepthEnableStencilState);
+
+    ZeroMemory(&descDisableDepthStencil, sizeof(D3D11_DEPTH_STENCIL_DESC));
+    descDisableDepthStencil.DepthEnable = false;
+    // 설명을 기반으로 객체 만듦
+    mpd3dDevice->CreateDepthStencilState(&descDisableDepthStencil, &mDepthDisableStencilState);
 
     // Setup the viewport
     // 뷰포트를 설정한다
